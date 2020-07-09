@@ -11,6 +11,8 @@ public class LoginForm extends javax.swing.JFrame {
     public LoginForm() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jTextFieldUsuario.setText("ElliotXLeo");
+        jPasswordFieldPassword.setText("73202484");
     }
 
     @SuppressWarnings("unchecked")
@@ -124,10 +126,9 @@ public class LoginForm extends javax.swing.JFrame {
         else{
             ev = vdao.ValidarVendedor(user, dni);
             if (ev.getUser_vendedor() != null && ev.getDni_vendedor() != null) {
-//                Principal p = new Principal();
-//                p.setVisible(true);
-//                dispose();
-                JOptionPane.showMessageDialog(this, "Éxito");
+                PrincipalForm p = new PrincipalForm();
+                p.setVisible(true);
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Datos incorrectos");
                 jTextFieldUsuario.requestFocus();
