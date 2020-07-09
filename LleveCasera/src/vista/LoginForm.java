@@ -5,8 +5,8 @@ import modelo.*;
 
 public class LoginForm extends javax.swing.JFrame {
 
-    VendedorDAO vdao = new VendedorDAO();
-    EntidadVendedor ev = new EntidadVendedor();
+    VendedorDAO vendedorDAO = new VendedorDAO();
+    EntidadVendedor entidadVendedor = new EntidadVendedor();
     
     public LoginForm() {
         initComponents();
@@ -28,6 +28,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabelLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicio de sesión");
 
         jPanelLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -41,7 +42,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabelPassword.setText("Password");
 
-        jButtonIngresar.setText("Ingresar");
+        jButtonIngresar.setText("Iniciar sesión");
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIngresarActionPerformed(evt);
@@ -110,22 +111,22 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
-        validar();
+        validarDatos();
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
     
-    public void validar(){
+    public void validarDatos(){
         String user = jTextFieldUsuario.getText();
         String dni = jPasswordFieldPassword.getText();
         if (jTextFieldUsuario.getText().equals("") || jPasswordFieldPassword.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Falta completar");
         }
         else{
-            ev = vdao.ValidarVendedor(user, dni);
-            if (ev.getUser_vendedor() != null && ev.getDni_vendedor() != null) {
+            entidadVendedor = vendedorDAO.IniciarSesion(user, dni);
+            if (entidadVendedor.getUser_vendedor() != null && entidadVendedor.getDni_vendedor() != null) {
                 PrincipalForm principalForm = new PrincipalForm();
                 principalForm.setVisible(true);
                 dispose();

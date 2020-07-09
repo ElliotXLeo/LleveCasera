@@ -24,7 +24,7 @@ public class Conexion {
                 System.out.println("Conexion establecida");
             }
         }
-        // Si la conexion NO fue exitosa mostramos un mensaje de error
+        // Si la conexion No fue exitosa mostramos un mensaje de error
         catch (ClassNotFoundException | SQLException e){
             System.out.println("Problemas al conectar");
         }

@@ -11,8 +11,8 @@ public class VendedorDAO {
     Conexion con = new Conexion();
     Connection acceso;
     
-    public EntidadVendedor ValidarVendedor(String user, String dni){
-        EntidadVendedor ev=new EntidadVendedor();
+    public EntidadVendedor IniciarSesion(String user, String dni){
+        EntidadVendedor entidadVendedor=new EntidadVendedor();
         String sql = "select * from vendedor where user_vendedor = ? and dni_vendedor = ?";
         try {
             acceso = con.Conectar();
@@ -21,15 +21,15 @@ public class VendedorDAO {
             ps.setString(2, dni);
             rs = ps.executeQuery();
             while (rs.next()) {
-                ev.setId_vendedor(rs.getInt(1));
-                ev.setDni_vendedor(rs.getString(2));
-                ev.setNombre_vendedor(rs.getString(3));
-                ev.setCelular_vendedor(rs.getString(4));
-                ev.setEstado_vendedor(rs.getString(5));
-                ev.setUser_vendedor(rs.getString(6));
+                entidadVendedor.setId_vendedor(rs.getInt(1));
+                entidadVendedor.setDni_vendedor(rs.getString(2));
+                entidadVendedor.setNombre_vendedor(rs.getString(3));
+                entidadVendedor.setCelular_vendedor(rs.getString(4));
+                entidadVendedor.setEstado_vendedor(rs.getString(5));
+                entidadVendedor.setUser_vendedor(rs.getString(6));
             }
         } catch (Exception e) {
         }
-        return ev;
+        return entidadVendedor;
     }
 }

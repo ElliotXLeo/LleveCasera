@@ -29,6 +29,7 @@ public class PrincipalForm extends javax.swing.JFrame {
         jMenuItemVenta = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Lleve Casera");
 
         javax.swing.GroupLayout jDesktopPanePrincipalLayout = new javax.swing.GroupLayout(jDesktopPanePrincipal);
         jDesktopPanePrincipal.setLayout(jDesktopPanePrincipalLayout);
@@ -38,7 +39,7 @@ public class PrincipalForm extends javax.swing.JFrame {
         );
         jDesktopPanePrincipalLayout.setVerticalGroup(
             jDesktopPanePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 245, Short.MAX_VALUE)
+            .addGap(0, 231, Short.MAX_VALUE)
         );
 
         jMenuMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/home.png"))); // NOI18N
@@ -117,7 +118,7 @@ public class PrincipalForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPanePrincipal)
+            .addComponent(jDesktopPanePrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
