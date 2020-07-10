@@ -218,6 +218,8 @@ public class ClienteForm extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
+        limpiarTabla();
+        listarTabla();
         limpiarFormulario();
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 

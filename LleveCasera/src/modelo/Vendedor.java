@@ -68,5 +68,5 @@ public class Vendedor {
     public void setEstado_vendedor(String estado_vendedor) {
         this.estado_vendedor = estado_vendedor;
     }
-    
+
 }
