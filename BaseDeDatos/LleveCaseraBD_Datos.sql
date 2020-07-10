@@ -8,20 +8,20 @@ insert into cliente (dni_cliente, nombre_cliente, celular_cliente, estado_client
 insert into cliente (dni_cliente, nombre_cliente, celular_cliente, estado_cliente) values ('72669763', 'Michael', '936466213', '1');
 select * from cliente;
 
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('frejoles', 8.5, 100, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('arroz', 3.5, 100, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('carne', 15, 25, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('pollo', 4.5, 50, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('pescado', 5.5, 25, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('ajos', 12, 50, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('cebolla', 2.5, 50, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('tomate', 3, 50, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('pimienta', 0.5, 100, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('comino', 0.5, 100, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('sal', 1, 100, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('aji amarillo', 4, 50, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('azucar', 2, 100, 1);
-insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('aceite', 5, 100, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Frejoles', 8.5, 100, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Arroz', 3.5, 100, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Carne', 15, 25, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Pollo', 4.5, 50, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Pescado', 5.5, 25, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Ajos', 12, 50, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Cebolla', 2.5, 50, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Tomate', 3, 50, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Pimienta', 0.5, 100, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Comino', 0.5, 100, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Sal', 1, 100, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Aji amarillo', 4, 50, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Azucar', 2, 100, 1);
+insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values ('Aceite', 5, 100, 1);
 select * from producto;
 
 insert into venta (numero_venta, fecha_venta, monto_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values ('000001', '2020-07-07', 43, 1, 1, 1);

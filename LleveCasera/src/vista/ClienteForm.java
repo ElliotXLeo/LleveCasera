@@ -27,16 +27,16 @@ public class ClienteForm extends javax.swing.JInternalFrame {
         jPanelFormulario = new javax.swing.JPanel();
         jLabelDNI = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
-        jLabelDireccion = new javax.swing.JLabel();
+        jLabelCelular = new javax.swing.JLabel();
         jLabelEstado = new javax.swing.JLabel();
         jTextFieldDNI = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldCelular = new javax.swing.JTextField();
+        jComboBoxEstado = new javax.swing.JComboBox<>();
         jButtonAgregar = new javax.swing.JButton();
         jButtonActualizar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jButtonLimpiar = new javax.swing.JButton();
-        jComboBoxEstado = new javax.swing.JComboBox<>();
         jPanelTabla = new javax.swing.JPanel();
         jScrollPaneTabla = new javax.swing.JScrollPane();
         jTableCliente = new javax.swing.JTable();
@@ -49,9 +49,11 @@ public class ClienteForm extends javax.swing.JInternalFrame {
 
         jLabelNombre.setText("Nombre");
 
-        jLabelDireccion.setText("Celular");
+        jLabelCelular.setText("Celular");
 
         jLabelEstado.setText("Estado");
+
+        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "0" }));
 
         jButtonAgregar.setText("Agregar");
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,8 +83,6 @@ public class ClienteForm extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "0" }));
-
         javax.swing.GroupLayout jPanelFormularioLayout = new javax.swing.GroupLayout(jPanelFormulario);
         jPanelFormulario.setLayout(jPanelFormularioLayout);
         jPanelFormularioLayout.setHorizontalGroup(
@@ -93,7 +93,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                     .addComponent(jLabelNombre)
                     .addComponent(jLabelDNI)
                     .addComponent(jLabelEstado)
-                    .addComponent(jLabelDireccion))
+                    .addComponent(jLabelCelular))
                 .addGap(27, 27, 27)
                 .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
@@ -125,7 +125,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                 .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonEliminar)
-                    .addComponent(jLabelDireccion))
+                    .addComponent(jLabelCelular))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEstado)
@@ -302,7 +302,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
         jTextFieldDNI.setText("");
         jTextFieldNombre.setText("");
         jTextFieldCelular.setText("");
-        jComboBoxEstado.setSelectedItem(1);
+        jComboBoxEstado.setSelectedIndex(0);
         jTextFieldDNI.requestFocus();
     }
 
@@ -318,8 +318,8 @@ public class ClienteForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonLimpiar;
     private javax.swing.JComboBox<String> jComboBoxEstado;
+    private javax.swing.JLabel jLabelCelular;
     private javax.swing.JLabel jLabelDNI;
-    private javax.swing.JLabel jLabelDireccion;
     private javax.swing.JLabel jLabelEstado;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JPanel jPanelFormulario;

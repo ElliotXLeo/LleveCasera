@@ -63,7 +63,7 @@
                       <Component id="jLabelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelDNI" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelEstado" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelDireccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCelular" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -102,7 +102,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTextFieldCelular" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCelular" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -126,7 +126,7 @@
             <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelDireccion">
+        <Component class="javax.swing.JLabel" name="jLabelCelular">
           <Properties>
             <Property name="text" type="java.lang.String" value="Celular"/>
           </Properties>
@@ -141,6 +141,19 @@
         <Component class="javax.swing.JTextField" name="jTextFieldNombre">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldCelular">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxEstado">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="1"/>
+                <StringItem index="1" value="0"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAgregar">
           <Properties>
@@ -173,19 +186,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimpiarActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxEstado">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="1"/>
-                <StringItem index="1" value="0"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
