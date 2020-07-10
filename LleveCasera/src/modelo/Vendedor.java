@@ -1,6 +1,6 @@
 package modelo;
 
-public class EntidadVendedor {
+public class Vendedor {
 
     private int id_vendedor;
     private String dni_vendedor;
@@ -9,10 +9,10 @@ public class EntidadVendedor {
     private String estado_vendedor;
     private String user_vendedor;
 
-    public EntidadVendedor() {
+    public Vendedor() {
     }
 
-    public EntidadVendedor(int id_vendedor, String dni_vendedor, String nombre_vendedor, String celular_vendedor, String estado_vendedor, String user_vendedor) {
+    public Vendedor(int id_vendedor, String dni_vendedor, String nombre_vendedor, String celular_vendedor, String estado_vendedor, String user_vendedor) {
         this.id_vendedor = id_vendedor;
         this.dni_vendedor = dni_vendedor;
         this.nombre_vendedor = nombre_vendedor;
@@ -68,4 +68,5 @@ public class EntidadVendedor {
     public void setEstado_vendedor(String estado_vendedor) {
         this.estado_vendedor = estado_vendedor;
     }
+    
 }

@@ -5,18 +5,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class VendedorDAO {
+    
     PreparedStatement ps;
     ResultSet rs;
     
-    Conexion con = new Conexion();
-    Connection acceso;
+    Conexion conexion = new Conexion();
+    Connection connection;
     
-    public EntidadVendedor IniciarSesion(String user, String dni){
-        EntidadVendedor entidadVendedor=new EntidadVendedor();
-        String sql = "select * from vendedor where user_vendedor = ? and dni_vendedor = ?";
+    public Vendedor IniciarSesion(String user, String dni){
+        Vendedor entidadVendedor=new Vendedor();
+        String sql = "select * from vendedor where user_vendedor = ? and dni_vendedor = ?;";
         try {
-            acceso = con.Conectar();
-            ps = acceso.prepareStatement(sql);
+            connection = conexion.Conectar();
+            ps = connection.prepareStatement(sql);
             ps.setString(1, user);
             ps.setString(2, dni);
             rs = ps.executeQuery();

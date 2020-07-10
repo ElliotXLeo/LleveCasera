@@ -6,8 +6,8 @@ import modelo.*;
 public class LoginForm extends javax.swing.JFrame {
 
     VendedorDAO vendedorDAO = new VendedorDAO();
-    EntidadVendedor entidadVendedor = new EntidadVendedor();
-    
+    Vendedor entidadVendedor = new Vendedor();
+
     public LoginForm() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -117,14 +117,13 @@ public class LoginForm extends javax.swing.JFrame {
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
-    
-    public void validarDatos(){
+
+    public void validarDatos() {
         String user = jTextFieldUsuario.getText();
         String dni = jPasswordFieldPassword.getText();
         if (jTextFieldUsuario.getText().equals("") || jPasswordFieldPassword.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Falta completar");
-        }
-        else{
+        } else {
             entidadVendedor = vendedorDAO.IniciarSesion(user, dni);
             if (entidadVendedor.getUser_vendedor() != null && entidadVendedor.getDni_vendedor() != null) {
                 PrincipalForm principalForm = new PrincipalForm();
@@ -136,7 +135,7 @@ public class LoginForm extends javax.swing.JFrame {
             }
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */
