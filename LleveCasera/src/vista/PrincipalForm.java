@@ -129,7 +129,7 @@ public class PrincipalForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     private void jMenuItemRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegistrarActionPerformed
-        VentasForm ventasForm = new VentasForm();
+        VentaForm ventasForm = new VentaForm();
         CentrarVentana(ventasForm);
     }//GEN-LAST:event_jMenuItemRegistrarActionPerformed
 

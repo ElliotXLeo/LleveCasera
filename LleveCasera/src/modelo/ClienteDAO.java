@@ -13,7 +13,26 @@ public class ClienteDAO implements CRUD{
     
     Conexion conexion = new Conexion();
     Connection connection;
-
+    
+    public Cliente buscarCliente(String dni) {
+        Cliente cliente=new Cliente();
+        String sql = "select * from cliente where dni_cliente = ?;";
+        try {
+            connection = conexion.Conectar();
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                cliente.setId_cliente(rs.getInt(1));
+                cliente.setDni_cliente(rs.getString(2));
+                cliente.setNombre_cliente(rs.getString(3));
+                cliente.setCelular_cliente(rs.getString(4));
+                cliente.setEstado_cliente(rs.getString(5));
+            }
+        } catch (Exception e) {
+        }
+        return cliente;
+    }
+    
     @Override
     public int agregar(Object[] object) {
         int respuesta = 0;

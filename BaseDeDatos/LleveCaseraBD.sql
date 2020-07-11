@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `bd_ventas`.`Vendedor` (
   `Nombres` VARCHAR(255) NOT NULL,
   `Telefono` VARCHAR(9) NOT NULL,
   `Estado` VARCHAR(1) NOT NULL,
-  `User_2` VARCHAR(8) NOT NULL,
+  `User` VARCHAR(8) NOT NULL,
   PRIMARY KEY (`IdVendedor`))
 ENGINE = InnoDB;
 
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `lleve_casera`.`cliente` (
   `estado_cliente` VARCHAR(1) NOT NULL,
   PRIMARY KEY (`id_cliente`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `lleve_casera`.`producto` (
   `estado_producto` VARCHAR(1) NOT NULL,
   PRIMARY KEY (`id_producto`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 15
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -155,9 +155,11 @@ CREATE TABLE IF NOT EXISTS `lleve_casera`.`vendedor` (
   `celular_vendedor` VARCHAR(9) NOT NULL,
   `estado_vendedor` VARCHAR(1) NOT NULL,
   `user_vendedor` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_vendedor`))
+  PRIMARY KEY (`id_vendedor`),
+  UNIQUE INDEX `dni_vendedor_UNIQUE` (`dni_vendedor` ASC) VISIBLE,
+  UNIQUE INDEX `user_vendedor_UNIQUE` (`user_vendedor` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 3
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -166,7 +168,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lleve_casera`.`venta` (
   `id_venta` INT NOT NULL AUTO_INCREMENT,
-  `numero_venta` VARCHAR(255) NOT NULL,
+  `serie_venta` VARCHAR(255) NOT NULL,
   `fecha_venta` DATE NOT NULL,
   `monto_venta` DOUBLE NOT NULL,
   `estado_venta` VARCHAR(1) NOT NULL,
@@ -182,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `lleve_casera`.`venta` (
     FOREIGN KEY (`vendedor_id_vendedor`)
     REFERENCES `lleve_casera`.`vendedor` (`id_vendedor`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -205,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `lleve_casera`.`detalle_venta` (
     FOREIGN KEY (`venta_id_venta`)
     REFERENCES `lleve_casera`.`venta` (`id_venta`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 13
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
