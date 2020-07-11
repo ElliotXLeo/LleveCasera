@@ -169,11 +169,13 @@
                       <Component id="jSpinnerCantidad" alignment="1" min="-2" pref="250" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jButtonAgregar" max="32767" attributes="0"/>
-                      <Component id="jButtonBuscarProducto" max="32767" attributes="0"/>
-                      <Component id="jButtonValidar" pref="80" max="32767" attributes="0"/>
-                      <Component id="jButtonBuscarCliente" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jButtonBuscarProducto" pref="80" max="32767" attributes="0"/>
+                          <Component id="jButtonBuscarCliente" pref="80" max="32767" attributes="0"/>
+                          <Component id="jButtonValidar" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="jButtonAgregar" min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -211,31 +213,35 @@
                       <Component id="jLabelDNI" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldCliente" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jButtonBuscarCliente" pref="0" max="32767" attributes="0"/>
+                      <Component id="jButtonBuscarCliente" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldProductoBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonBuscarProducto" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jLabelProductoBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jButtonBuscarProducto" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldProductoBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelProductoBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTextFieldPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAgregar" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabelPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelStock" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonAgregar" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jSpinnerCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonValidar" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jLabelCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jButtonValidar" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jSpinnerCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCantidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -275,6 +281,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscarClienteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonBuscarProducto">
           <Properties>

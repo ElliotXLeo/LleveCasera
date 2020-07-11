@@ -14,7 +14,7 @@ public class VendedorDAO implements CRUD {
     Conexion conexion = new Conexion();
     Connection connection;
 
-    public Vendedor IniciarSesion(String user, String dni) {
+    public Vendedor iniciarSesion(String user, String dni) {
         Vendedor entidadVendedor = new Vendedor();
         String sql = "select * from vendedor where user_vendedor = ? and dni_vendedor = ?;";
         try {

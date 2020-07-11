@@ -191,7 +191,7 @@ public class PrincipalForm extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPanePrincipal;
+    public static javax.swing.JDesktopPane jDesktopPanePrincipal;
     private javax.swing.JMenuBar jMenuBarMenu;
     private javax.swing.JMenuItem jMenuItemAyuda;
     private javax.swing.JMenuItem jMenuItemCliente;

@@ -20,6 +20,7 @@ public class ClienteDAO implements CRUD{
         try {
             connection = conexion.Conectar();
             ps = connection.prepareStatement(sql);
+            ps.setString(1, dni);
             rs = ps.executeQuery();
             while (rs.next()) {
                 cliente.setId_cliente(rs.getInt(1));

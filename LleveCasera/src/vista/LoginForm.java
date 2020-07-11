@@ -121,10 +121,10 @@ public class LoginForm extends javax.swing.JFrame {
     public void validarDatos() {
         String user = jTextFieldUsuario.getText();
         String dni = jPasswordFieldPassword.getText();
-        if (jTextFieldUsuario.getText().equals("") || jPasswordFieldPassword.getText().equals("")) {
+        if (user.equals("") || dni.equals("")) {
             JOptionPane.showMessageDialog(this, "Falta completar");
         } else {
-            entidadVendedor = vendedorDAO.IniciarSesion(user, dni);
+            entidadVendedor = vendedorDAO.iniciarSesion(user, dni);
             if (entidadVendedor.getUser_vendedor() != null && entidadVendedor.getDni_vendedor() != null) {
                 PrincipalForm principalForm = new PrincipalForm();
                 principalForm.setVisible(true);
