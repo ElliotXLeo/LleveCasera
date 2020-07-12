@@ -18,6 +18,7 @@ public class ProductoForm extends javax.swing.JInternalFrame {
     public ProductoForm() {
         initComponents();
         listarTabla();
+        
     }
 
     @SuppressWarnings("unchecked")

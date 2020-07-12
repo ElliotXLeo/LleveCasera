@@ -13,7 +13,63 @@ public class ProductoDAO implements CRUD{
     
     Conexion conexion = new Conexion();
     Connection connection;
-
+    
+    public ArrayList<String> listarProducto(){
+        ArrayList<String> lista = new ArrayList<String>();
+        Producto producto=new Producto();
+        String sql = "select * from producto order by nombre_producto;";
+        try {
+            connection = conexion.Conectar();
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                lista.add(rs.getString(2));
+            }
+        } catch (Exception e) {
+        }
+        return lista;
+    }
+          
+    public Producto buscarProductoCombo(String nombreProducto){
+        Producto producto=new Producto();
+        String sql = "select * from producto where nombre_producto=?;";
+        try {
+            connection = conexion.Conectar();
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, nombreProducto);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                producto.setId_producto(rs.getInt(1));
+                producto.setNombre_producto(rs.getString(2));
+                producto.setPrecio_producto(rs.getDouble(3));
+                producto.setStock_producto(rs.getInt(4));
+                producto.setEstado_producto(rs.getString(5));
+            }
+        } catch (Exception e) {
+        }
+        return producto;
+    }
+    
+    public Producto buscarProductoText(int id){
+        Producto producto=new Producto();
+        String sql = "select * from producto where id_producto=?;";
+        try {
+            connection = conexion.Conectar();
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                producto.setId_producto(rs.getInt(1));
+                producto.setNombre_producto(rs.getString(2));
+                producto.setPrecio_producto(rs.getDouble(3));
+                producto.setStock_producto(rs.getInt(4));
+                producto.setEstado_producto(rs.getString(5));
+            }
+        } catch (Exception e) {
+        }
+        return producto;
+    }
+    
     @Override
     public int agregar(Object[] object) {
         int respuesta = 0;

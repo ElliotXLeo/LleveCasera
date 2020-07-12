@@ -1,31 +1,45 @@
 package vista;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
 import modelo.ClienteDAO;
-import static vista.PrincipalForm.jDesktopPanePrincipal;
+import modelo.Producto;
+import modelo.ProductoDAO;
 
 public class VentaForm extends javax.swing.JInternalFrame {
     
     ClienteDAO clienteDAO = new ClienteDAO();
     Cliente cliente = new Cliente();
 
+    ProductoDAO productoDAO = new ProductoDAO();
+    Producto producto = new Producto();
+    
     DefaultTableModel defaultTableModel = new DefaultTableModel();
 
     int id;
     
     public VentaForm() {
         initComponents();
+        llenarComboProducto();
     }
-
+    
+    void llenarComboProducto(){
+        ArrayList<String> lista = new ArrayList<String>();
+        lista = productoDAO.listarProducto();
+        for (int i = 0; i < lista.size(); i++) {
+            jComboBoxNombreProducto.addItem(lista.get(i));
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jPanelTitulo = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabelTitulo = new javax.swing.JLabel();
@@ -34,11 +48,10 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jLabelSerie = new javax.swing.JLabel();
         jPanelMenu = new javax.swing.JPanel();
         jLabelDNI = new javax.swing.JLabel();
-        jLabelProductoBuscar = new javax.swing.JLabel();
+        jLabelBuscarProducto = new javax.swing.JLabel();
         jLabelPrecio = new javax.swing.JLabel();
         jLabelCantidad = new javax.swing.JLabel();
         jTextFieldDNI = new javax.swing.JTextField();
-        jTextFieldProductoBuscar = new javax.swing.JTextField();
         jTextFieldPrecio = new javax.swing.JTextField();
         jSpinnerCantidad = new javax.swing.JSpinner();
         jButtonBuscarCliente = new javax.swing.JButton();
@@ -53,6 +66,8 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jTextFieldProducto = new javax.swing.JTextField();
         jTextFieldStock = new javax.swing.JTextField();
         jTextFieldVendedor = new javax.swing.JTextField();
+        jTextFieldBuscarProducto = new javax.swing.JTextField();
+        jComboBoxNombreProducto = new javax.swing.JComboBox<>();
         jPanelTabla = new javax.swing.JPanel();
         jScrollPaneTabla = new javax.swing.JScrollPane();
         jTableVenta = new javax.swing.JTable();
@@ -61,6 +76,9 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jButtonVenta = new javax.swing.JButton();
         jLabelTotal = new javax.swing.JLabel();
         jTextFieldTotal = new javax.swing.JTextField();
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setTitle("Ventas");
 
@@ -119,7 +137,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
 
         jLabelDNI.setText("DNI");
 
-        jLabelProductoBuscar.setText("Producto");
+        jLabelBuscarProducto.setText("Producto");
 
         jLabelPrecio.setText("Precio");
 
@@ -133,6 +151,11 @@ public class VentaForm extends javax.swing.JInternalFrame {
         });
 
         jButtonBuscarProducto.setText("Buscar");
+        jButtonBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarProductoActionPerformed(evt);
+            }
+        });
 
         jButtonAgregar.setText("Agregar");
 
@@ -146,6 +169,12 @@ public class VentaForm extends javax.swing.JInternalFrame {
 
         jLabelVendedor.setText("Vendedor");
 
+        jComboBoxNombreProducto.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxNombreProductoItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanelMenuLayout);
         jPanelMenuLayout.setHorizontalGroup(
@@ -154,15 +183,18 @@ public class VentaForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelDNI)
-                    .addComponent(jLabelProductoBuscar)
+                    .addComponent(jLabelBuscarProducto)
                     .addComponent(jLabelPrecio)
                     .addComponent(jLabelCantidad))
                 .addGap(16, 16, 16)
-                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextFieldDNI)
-                    .addComponent(jTextFieldProductoBuscar)
                     .addComponent(jTextFieldPrecio)
-                    .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelMenuLayout.createSequentialGroup()
+                        .addComponent(jTextFieldBuscarProducto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -178,7 +210,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
                         .addComponent(jTextFieldCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelMenuLayout.createSequentialGroup()
                         .addComponent(jLabelVendedor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                         .addComponent(jTextFieldVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelMenuLayout.createSequentialGroup()
                         .addComponent(jLabelProducto)
@@ -202,10 +234,12 @@ public class VentaForm extends javax.swing.JInternalFrame {
                     .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldProductoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelProductoBuscar)
+                        .addComponent(jButtonBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelBuscarProducto)
                         .addComponent(jLabelProducto)
                         .addComponent(jTextFieldProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -247,21 +281,17 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jPanelTabla.setLayout(jPanelTablaLayout);
         jPanelTablaLayout.setHorizontalGroup(
             jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 836, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelTablaLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(jPanelTablaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanelTablaLayout.setVerticalGroup(
             jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 163, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelTablaLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(jPanelTablaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanelVenta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -280,7 +310,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -350,9 +380,35 @@ public class VentaForm extends javax.swing.JInternalFrame {
         buscarCliente();
     }//GEN-LAST:event_jButtonBuscarClienteActionPerformed
 
-    void buscarCliente() {
+    private void jButtonBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarProductoActionPerformed
+        buscarProducto();
+    }//GEN-LAST:event_jButtonBuscarProductoActionPerformed
+
+    private void jComboBoxNombreProductoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxNombreProductoItemStateChanged
+        String nombreProducto = jComboBoxNombreProducto.getSelectedItem().toString();
         int respuesta;
+        if (nombreProducto.equals("")) {
+            JOptionPane.showMessageDialog(this, "Ingresar código");
+        } else {
+            producto = productoDAO.buscarProductoCombo(nombreProducto);
+            if (producto.getId_producto() != 0) {
+                jTextFieldProducto.setText(producto.getNombre_producto());
+                jTextFieldPrecio.setText("" + producto.getPrecio_producto());
+                jTextFieldStock.setText("" + producto.getStock_producto());
+                jSpinnerCantidad.requestFocus();
+            } else {
+                respuesta = JOptionPane.showConfirmDialog(this, "No registrado. ¿Desea registrar?");
+                if (respuesta == 0) {
+                    ProductoForm productoForm = new ProductoForm();
+                    CentrarVentana(productoForm);
+                }
+            }
+        }
+    }//GEN-LAST:event_jComboBoxNombreProductoItemStateChanged
+
+    void buscarCliente() {
         String dni = jTextFieldDNI.getText();
+        int respuesta;
         if (dni.equals("")) {
             JOptionPane.showMessageDialog(this, "Ingresar DNI");
         } else {
@@ -366,6 +422,28 @@ public class VentaForm extends javax.swing.JInternalFrame {
             } else {
                 jTextFieldCliente.setText(cliente.getNombre_cliente());
                 jButtonBuscarProducto.requestFocus();
+            }
+        }
+    }
+       
+    void buscarProducto(){
+        String id = jTextFieldBuscarProducto.getText();
+        int respuesta;
+        if (jTextFieldBuscarProducto.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Ingresar código");
+        } else {
+            producto = productoDAO.buscarProductoText(Integer.parseInt(id));
+            if (producto.getId_producto() != 0) {
+                jTextFieldProducto.setText(producto.getNombre_producto());
+                jTextFieldPrecio.setText("" + producto.getPrecio_producto());
+                jTextFieldStock.setText("" + producto.getStock_producto());         
+                jSpinnerCantidad.requestFocus();
+            } else {
+                respuesta = JOptionPane.showConfirmDialog(this, "No registrado. ¿Desea registrar?");
+                if (respuesta == 0) {
+                    ProductoForm productoForm = new ProductoForm();
+                    CentrarVentana(productoForm);                    
+                }
             }
         }
     }
@@ -386,6 +464,8 @@ public class VentaForm extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonValidar;
     private javax.swing.JButton jButtonVenta;
+    private javax.swing.JComboBox<String> jComboBoxNombreProducto;
+    private javax.swing.JLabel jLabelBuscarProducto;
     private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JLabel jLabelCelular;
     private javax.swing.JLabel jLabelCliente;
@@ -394,7 +474,6 @@ public class VentaForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelN;
     private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JLabel jLabelProducto;
-    private javax.swing.JLabel jLabelProductoBuscar;
     private javax.swing.JLabel jLabelSerie;
     private javax.swing.JLabel jLabelStock;
     private javax.swing.JLabel jLabelTitulo;
@@ -404,14 +483,15 @@ public class VentaForm extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelTabla;
     private javax.swing.JPanel jPanelTitulo;
     private javax.swing.JPanel jPanelVenta;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPaneTabla;
     private javax.swing.JSpinner jSpinnerCantidad;
     private javax.swing.JTable jTableVenta;
+    private javax.swing.JTextField jTextFieldBuscarProducto;
     private javax.swing.JTextField jTextFieldCliente;
     private javax.swing.JTextField jTextFieldDNI;
     private javax.swing.JTextField jTextFieldPrecio;
     private javax.swing.JTextField jTextFieldProducto;
-    private javax.swing.JTextField jTextFieldProductoBuscar;
     private javax.swing.JTextField jTextFieldStock;
     private javax.swing.JTextField jTextFieldTotal;
     private javax.swing.JTextField jTextFieldVendedor;
