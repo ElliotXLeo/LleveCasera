@@ -5,8 +5,8 @@ import modelo.*;
 
 public class LoginForm extends javax.swing.JFrame {
 
-    VendedorDAO vendedorDAO = new VendedorDAO();
-    Vendedor entidadVendedor = new Vendedor();
+    public static VendedorDAO vendedorDAO = new VendedorDAO();
+    public static Vendedor vendedor = new Vendedor();
 
     public LoginForm() {
         initComponents();
@@ -124,8 +124,8 @@ public class LoginForm extends javax.swing.JFrame {
         if (user.equals("") || dni.equals("")) {
             JOptionPane.showMessageDialog(this, "Falta completar");
         } else {
-            entidadVendedor = vendedorDAO.iniciarSesion(user, dni);
-            if (entidadVendedor.getUser_vendedor() != null && entidadVendedor.getDni_vendedor() != null) {
+            vendedor = vendedorDAO.iniciarSesion(user, dni);
+            if (vendedor.getUser_vendedor() != null && vendedor.getDni_vendedor() != null) {
                 PrincipalForm principalForm = new PrincipalForm();
                 principalForm.setVisible(true);
                 dispose();

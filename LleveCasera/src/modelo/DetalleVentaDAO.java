@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class VentaDAO {
+public class DetalleVentaDAO {
     
     PreparedStatement ps;
     ResultSet rs;
@@ -12,9 +12,9 @@ public class VentaDAO {
     Conexion conexion = new Conexion();
     Connection connection;
     
-    public String ultimaSerieVenta(){
+    public String ultimoIdVenta(){
         String ultimaSerieVenta = "";
-        String sql = "select max(serie_venta) from venta;";
+        String sql = "select max(id_venta) from venta;";
         try {
             connection = conexion.Conectar();
             ps = connection.prepareStatement(sql);
@@ -27,22 +27,19 @@ public class VentaDAO {
         return ultimaSerieVenta;
     }
     
-    public int guardarVenta(Venta venta) {
+    public int guardarDetalleVenta(DetalleVenta detalleVenta){
         int respuesta = 0;
-        String sql = "insert into venta (serie_venta, fecha_venta, monto_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values (?, ?, ?, ?, ?, ?);";
+        String sql = "insert into detalle_venta (cantidad_venta, precio_total_venta, venta_id_venta, producto_id_producto) values (?, ?, ?, ?);";
         try {
             connection = conexion.Conectar();
             ps = connection.prepareStatement(sql);
-            ps.setString(1, venta.getSerie_venta());
-            ps.setString(2, venta.getFecha_venta());
-            ps.setDouble(3, venta.getMonto_venta());
-            ps.setString(4, venta.getEstado_venta());
-            ps.setInt(5, venta.getCliente_id_cliente());
-            ps.setInt(6, venta.getVendedor_id_vendedor());
+            ps.setInt(1, detalleVenta.getCantidad_venta());
+            ps.setDouble(2, detalleVenta.getPrecio_total_venta());
+            ps.setInt(3, detalleVenta.getVenta_id_venta());
+            ps.setInt(4, detalleVenta.getProducto_id_producto());
             respuesta = ps.executeUpdate();
         } catch (Exception e) {
         }
         return respuesta;
     }
-    
 }

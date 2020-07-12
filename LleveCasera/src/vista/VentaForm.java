@@ -2,14 +2,19 @@ package vista;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
 import modelo.ClienteDAO;
+import modelo.DetalleVenta;
+import modelo.DetalleVentaDAO;
 import modelo.Producto;
 import modelo.ProductoDAO;
+import modelo.Venta;
+import modelo.VentaDAO;
 
 public class VentaForm extends javax.swing.JInternalFrame {
     
@@ -19,15 +24,29 @@ public class VentaForm extends javax.swing.JInternalFrame {
     ProductoDAO productoDAO = new ProductoDAO();
     Producto producto = new Producto();
     
+    VentaDAO ventaDAO = new VentaDAO();
+    Venta venta = new Venta();
+    
+    DetalleVentaDAO detalleVentaDAO = new DetalleVentaDAO();
+    DetalleVenta detalleVenta = new DetalleVenta();
+    
     DefaultTableModel defaultTableModel = new DefaultTableModel();
-
+      
     static int numeroProducto = 0;
+    
+    Calendar calendar = new GregorianCalendar();
     
     public VentaForm() {
         initComponents();
+        serieVenta();
         llenarComboProducto();
+        fechaActual();
+        jTextFieldVendedor.setText("" + LoginForm.vendedor.getId_vendedor());
     }
     
+    void fechaActual(){
+        jTextFieldFecha.setText("" + calendar.get(Calendar.YEAR) + "-" + calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.DAY_OF_MONTH));
+    }
     void llenarComboProducto(){
         ArrayList<String> lista = new ArrayList<String>();
         lista = productoDAO.listarProducto();
@@ -59,7 +78,6 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jButtonBuscarCliente = new javax.swing.JButton();
         jButtonBuscarProducto = new javax.swing.JButton();
         jButtonAgregar = new javax.swing.JButton();
-        jButtonValidar = new javax.swing.JButton();
         jLabelCliente = new javax.swing.JLabel();
         jLabelProducto = new javax.swing.JLabel();
         jLabelStock = new javax.swing.JLabel();
@@ -68,6 +86,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jTextFieldProducto = new javax.swing.JTextField();
         jTextFieldStock = new javax.swing.JTextField();
         jTextFieldVendedor = new javax.swing.JTextField();
+        jTextFieldFecha = new javax.swing.JTextField();
         jPanelTabla = new javax.swing.JPanel();
         jScrollPaneTabla = new javax.swing.JScrollPane();
         jTableVenta = new javax.swing.JTable();
@@ -93,8 +112,6 @@ public class VentaForm extends javax.swing.JInternalFrame {
 
         jLabelN.setText("N°");
 
-        jLabelSerie.setText("000000");
-
         javax.swing.GroupLayout jPanelTituloLayout = new javax.swing.GroupLayout(jPanelTitulo);
         jPanelTitulo.setLayout(jPanelTituloLayout);
         jPanelTituloLayout.setHorizontalGroup(
@@ -104,16 +121,15 @@ public class VentaForm extends javax.swing.JInternalFrame {
                 .addComponent(jLabelLogo)
                 .addGap(256, 256, 256)
                 .addGroup(jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTitulo)
                     .addGroup(jPanelTituloLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jLabelCelular))
-                    .addGroup(jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanelTituloLayout.createSequentialGroup()
-                            .addComponent(jLabelN)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabelSerie)
-                            .addGap(48, 48, 48))
-                        .addComponent(jLabelTitulo, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addGroup(jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelTituloLayout.createSequentialGroup()
+                                .addComponent(jLabelN)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelCelular))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelTituloLayout.setVerticalGroup(
@@ -126,9 +142,9 @@ public class VentaForm extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelCelular)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelSerie)
-                            .addComponent(jLabelN)))
+                        .addGroup(jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelN, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabelLogo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -170,8 +186,6 @@ public class VentaForm extends javax.swing.JInternalFrame {
             }
         });
 
-        jButtonValidar.setText("Validar");
-
         jLabelCliente.setText("Cliente");
 
         jLabelProducto.setText("Producto");
@@ -204,9 +218,9 @@ public class VentaForm extends javax.swing.JInternalFrame {
                 .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jButtonBuscarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                        .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                        .addComponent(jButtonValidar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                    .addComponent(jButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelMenuLayout.createSequentialGroup()
@@ -255,13 +269,12 @@ public class VentaForm extends javax.swing.JInternalFrame {
                     .addComponent(jTextFieldStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelCantidad)
-                        .addComponent(jLabelVendedor)
-                        .addComponent(jTextFieldVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCantidad)
+                    .addComponent(jLabelVendedor)
+                    .addComponent(jTextFieldVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -295,15 +308,25 @@ public class VentaForm extends javax.swing.JInternalFrame {
             jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTablaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelVenta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jButtonVenta.setText("Generar venta");
+        jButtonVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVentaActionPerformed(evt);
+            }
+        });
 
         jLabelTotal.setText("Total");
 
@@ -395,7 +418,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
         if (nombreProducto.equals("")) {
             JOptionPane.showMessageDialog(this, "Ingresar código");
         } else {
-            producto = productoDAO.buscarProductoCombo(nombreProducto);
+            producto = productoDAO.buscarProductoNombre(nombreProducto);
             if (producto.getId_producto() != 0) {
                 jTextFieldProducto.setText(producto.getNombre_producto());
                 jTextFieldPrecio.setText("" + producto.getPrecio_producto());
@@ -415,6 +438,25 @@ public class VentaForm extends javax.swing.JInternalFrame {
         agregarProducto();
     }//GEN-LAST:event_jButtonAgregarActionPerformed
 
+    private void jButtonVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVentaActionPerformed
+        if (jTextFieldTotal.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Agregar producto");
+        } else {
+            guardarVenta();
+            guardarDetalleVenta();
+            actualizarStock();
+            JOptionPane.showMessageDialog(this, "Compra realizada");
+            limpiarFormulario();
+            limpiarTabla();
+            serieVenta();
+        }  
+    }//GEN-LAST:event_jButtonVentaActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        limpiarFormulario();
+        limpiarTabla();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+    
     void buscarCliente() {
         String dni = jTextFieldDNI.getText();
         int respuesta;
@@ -441,7 +483,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
         if (jTextFieldBuscarProducto.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Ingresar código");
         } else {
-            producto = productoDAO.buscarProductoText(Integer.parseInt(id));
+            producto = productoDAO.buscarProductoId(Integer.parseInt(id));
             if (producto.getId_producto() != 0) {
                 jTextFieldProducto.setText(producto.getNombre_producto());
                 jTextFieldPrecio.setText("" + producto.getPrecio_producto());
@@ -503,17 +545,80 @@ public class VentaForm extends javax.swing.JInternalFrame {
             }
         }
     }
-    
+       
     void totalVenta(){
         double total = 0;
-        int cantidad = 0;
+        int cantidad_venta = 0;
         double precio_producto = 0;
         for (int i = 0; i < jTableVenta.getRowCount(); i++) {
-            cantidad = Integer.parseInt(jTableVenta.getValueAt(i, 3).toString());
+            cantidad_venta = Integer.parseInt(jTableVenta.getValueAt(i, 3).toString());
             precio_producto = Double.parseDouble(jTableVenta.getValueAt(i, 4).toString());
-            total = total + (cantidad * precio_producto);
+            total = total + (cantidad_venta * precio_producto);
         }
         jTextFieldTotal.setText("" + total);
+    }
+    
+    void guardarVenta(){
+        String serie_venta = jLabelSerie.getText();
+        String fecha_venta = jTextFieldFecha.getText();
+        double monto_venta = Double.parseDouble(jTextFieldTotal.getText());
+        String estado_venta = "1";
+        int id_cliente = cliente.getId_cliente();
+        int id_vendedor = Integer.parseInt(jTextFieldVendedor.getText());
+        
+        venta.setSerie_venta(serie_venta);
+        venta.setFecha_venta(fecha_venta);
+        venta.setMonto_venta(monto_venta);
+        venta.setEstado_venta(estado_venta);
+        venta.setCliente_id_cliente(id_cliente);
+        venta.setVendedor_id_vendedor(id_vendedor);
+        ventaDAO.guardarVenta(venta);
+    }
+    
+    void guardarDetalleVenta(){
+        int venta_id_venta = Integer.parseInt(detalleVentaDAO.ultimoIdVenta());
+        int cantidad_venta;
+        int producto_id_producto;
+        double precio_total_venta;
+        for (int i = 0; i < jTableVenta.getRowCount(); i++) {
+            cantidad_venta = Integer.parseInt(jTableVenta.getValueAt(i, 3).toString());
+            producto_id_producto = Integer.parseInt(jTableVenta.getValueAt(i, 1).toString());
+            precio_total_venta = Double.parseDouble(jTableVenta.getValueAt(i, 5).toString());
+            detalleVenta.setVenta_id_venta(venta_id_venta);
+            detalleVenta.setCantidad_venta(cantidad_venta);
+            detalleVenta.setProducto_id_producto(producto_id_producto);
+            detalleVenta.setPrecio_total_venta(precio_total_venta);
+            detalleVentaDAO.guardarDetalleVenta(detalleVenta);
+        }
+    }
+    
+    void serieVenta(){
+        String ultimaSerieVenta = detalleVentaDAO.ultimoIdVenta();
+        int serie = 0;
+        if (ultimaSerieVenta == null) {
+            jLabelSerie.setText("000001");
+        } else {
+            serie = Integer.parseInt(ultimaSerieVenta);
+            jLabelSerie.setText("00000" + (serie+1));
+        }
+    }
+    
+    void limpiarTabla() {
+        for (int i = (defaultTableModel.getRowCount() - 1); i >= 0; i--) {
+            defaultTableModel.removeRow(i);
+        }
+    }
+    
+    void limpiarFormulario() {
+        jTextFieldDNI.setText("");
+        jTextFieldBuscarProducto.setText("");
+        jComboBoxNombreProducto.setSelectedIndex(0);
+        jTextFieldPrecio.setText("");
+        jSpinnerCantidad.setValue(0);
+        jTextFieldCliente.setText("");
+        jTextFieldProducto.setText("");
+        jTextFieldStock.setText("");
+        jTextFieldDNI.requestFocus();
     }
     
     void CentrarVentana(JInternalFrame form){
@@ -524,13 +629,24 @@ public class VentaForm extends javax.swing.JInternalFrame {
         form.show();
     }
     
+    void actualizarStock() {
+        int id_producto;
+        int cantidad_venta;
+        int stock_producto;
+        for (int i = 0; i < defaultTableModel.getRowCount(); i++) {
+            id_producto = Integer.parseInt(jTableVenta.getValueAt(i, 1).toString());
+            cantidad_venta = Integer.parseInt(jTableVenta.getValueAt(i, 3).toString());
+            producto = productoDAO.buscarProductoId(id_producto);
+            stock_producto = producto.getStock_producto() - cantidad_venta;
+            productoDAO.actualizarStock(stock_producto, id_producto);
+        }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregar;
     private javax.swing.JButton jButtonBuscarCliente;
     private javax.swing.JButton jButtonBuscarProducto;
     private javax.swing.JButton jButtonCancelar;
-    private javax.swing.JButton jButtonValidar;
     private javax.swing.JButton jButtonVenta;
     private javax.swing.JComboBox<String> jComboBoxNombreProducto;
     private javax.swing.JLabel jLabelBuscarProducto;
@@ -558,6 +674,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextFieldBuscarProducto;
     private javax.swing.JTextField jTextFieldCliente;
     private javax.swing.JTextField jTextFieldDNI;
+    private javax.swing.JTextField jTextFieldFecha;
     private javax.swing.JTextField jTextFieldPrecio;
     private javax.swing.JTextField jTextFieldProducto;
     private javax.swing.JTextField jTextFieldStock;

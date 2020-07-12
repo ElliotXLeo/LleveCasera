@@ -1,10 +1,36 @@
-drop database lleve_casera;
+/* actualizarStock */
+-- actualizarStock
+update producto set stock_producto = 150 where id_producto = 1;
 
-/* Ventas */
-select * from venta;
-describe venta;
+/* detalle_venta */
+-- guardarDetalleVenta
+insert into detalle_venta (cantidad_venta, precio_total_venta, venta_id_venta, producto_id_producto) values (2, 7, 1, 2);
 
-/* Consulta de inicioSesion */
+/* generarVenta */
+-- ultimoIdVenta
+select max(id_venta) from venta;
+
+-- guardarVenta
+insert into venta (serie_venta, fecha_venta, monto_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values ('000001', '2020-07-07', 43, 1, 1, 1);
+
+
+/* listarProducto */
+select * from producto order by nombre_producto;
+
+
+/* buscarProducto */
+-- buscarProductoId
+select * from producto where id_producto=1;
+
+-- buscarProductoNombre
+select * from producto where nombre_producto='Frejoles';
+
+
+/* buscarCliente */
+select * from cliente where dni_cliente = 73202484;
+
+
+/* iniciarSesion */
 select * from vendedor where user_vendedor = 'ElliotXLeo' and dni_vendedor = 73202484;
 
 

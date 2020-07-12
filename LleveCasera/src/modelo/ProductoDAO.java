@@ -14,6 +14,21 @@ public class ProductoDAO implements CRUD{
     Conexion conexion = new Conexion();
     Connection connection;
     
+    public int actualizarStock(int stock_producto, int id_producto){
+        int respuesta = 0;
+        String sql = "update producto set stock_producto = ? where id_producto = ?;";
+        try {
+            connection = conexion.Conectar();
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, stock_producto);
+            ps.setInt(2, id_producto);
+            respuesta = ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return respuesta;
+    }
+    
+    
     public ArrayList<String> listarProducto(){
         ArrayList<String> lista = new ArrayList<String>();
         Producto producto=new Producto();
@@ -30,7 +45,7 @@ public class ProductoDAO implements CRUD{
         return lista;
     }
           
-    public Producto buscarProductoCombo(String nombreProducto){
+    public Producto buscarProductoNombre(String nombreProducto){
         Producto producto=new Producto();
         String sql = "select * from producto where nombre_producto=?;";
         try {
@@ -50,7 +65,7 @@ public class ProductoDAO implements CRUD{
         return producto;
     }
     
-    public Producto buscarProductoText(int id){
+    public Producto buscarProductoId(int id){
         Producto producto=new Producto();
         String sql = "select * from producto where id_producto=?;";
         try {
