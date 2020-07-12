@@ -21,7 +21,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
     
     DefaultTableModel defaultTableModel = new DefaultTableModel();
 
-    int id;
+    static int numeroProducto = 0;
     
     public VentaForm() {
         initComponents();
@@ -52,6 +52,8 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jLabelPrecio = new javax.swing.JLabel();
         jLabelCantidad = new javax.swing.JLabel();
         jTextFieldDNI = new javax.swing.JTextField();
+        jTextFieldBuscarProducto = new javax.swing.JTextField();
+        jComboBoxNombreProducto = new javax.swing.JComboBox<>();
         jTextFieldPrecio = new javax.swing.JTextField();
         jSpinnerCantidad = new javax.swing.JSpinner();
         jButtonBuscarCliente = new javax.swing.JButton();
@@ -66,8 +68,6 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jTextFieldProducto = new javax.swing.JTextField();
         jTextFieldStock = new javax.swing.JTextField();
         jTextFieldVendedor = new javax.swing.JTextField();
-        jTextFieldBuscarProducto = new javax.swing.JTextField();
-        jComboBoxNombreProducto = new javax.swing.JComboBox<>();
         jPanelTabla = new javax.swing.JPanel();
         jScrollPaneTabla = new javax.swing.JScrollPane();
         jTableVenta = new javax.swing.JTable();
@@ -143,6 +143,12 @@ public class VentaForm extends javax.swing.JInternalFrame {
 
         jLabelCantidad.setText("Cantidad");
 
+        jComboBoxNombreProducto.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxNombreProductoItemStateChanged(evt);
+            }
+        });
+
         jButtonBuscarCliente.setText("Buscar");
         jButtonBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +164,11 @@ public class VentaForm extends javax.swing.JInternalFrame {
         });
 
         jButtonAgregar.setText("Agregar");
+        jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgregarActionPerformed(evt);
+            }
+        });
 
         jButtonValidar.setText("Validar");
 
@@ -168,12 +179,6 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jLabelStock.setText("Stock");
 
         jLabelVendedor.setText("Vendedor");
-
-        jComboBoxNombreProducto.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxNombreProductoItemStateChanged(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanelMenuLayout);
@@ -267,7 +272,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "N°", "ID", "Producto", "Cantidad", "Precio", "Total"
+                "N°", "ID", "Producto", "Cantidad", "Precio", "Sub total"
             }
         ));
         jTableVenta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -406,6 +411,10 @@ public class VentaForm extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jComboBoxNombreProductoItemStateChanged
 
+    private void jButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActionPerformed
+        agregarProducto();
+    }//GEN-LAST:event_jButtonAgregarActionPerformed
+
     void buscarCliente() {
         String dni = jTextFieldDNI.getText();
         int respuesta;
@@ -446,6 +455,65 @@ public class VentaForm extends javax.swing.JInternalFrame {
                 }
             }
         }
+    }
+    
+    void agregarProducto(){
+        double subTotal=0;
+        ArrayList lista = new ArrayList();
+        defaultTableModel = (DefaultTableModel) jTableVenta.getModel();
+        
+        String nombre_cliente = jTextFieldCliente.getText();
+        
+        int id_producto = producto.getId_producto();
+        String nombre_producto = producto.getNombre_producto();
+        int cantidad = Integer.parseInt(jSpinnerCantidad.getValue().toString());
+        double precio_producto = producto.getPrecio_producto();
+        subTotal = cantidad * precio_producto;
+        
+        int stock_producto = Integer.parseInt(jTextFieldStock.getText());
+        //String estado_producto;
+               
+        if (nombre_cliente.equals("")) {
+            JOptionPane.showMessageDialog(this, "Buscar cliente");
+        } else {
+            if (cantidad > 0){
+                if (stock_producto > 0) {
+                    numeroProducto++;
+                    lista.add(numeroProducto);
+                    lista.add(id_producto);
+                    lista.add(nombre_producto);
+                    lista.add(cantidad);
+                    lista.add(precio_producto);
+                    lista.add(subTotal);
+                    Object[] object = new Object[6];
+                    object[0] = lista.get(0);
+                    object[1] = lista.get(1);
+                    object[2] = lista.get(2);
+                    object[3] = lista.get(3);
+                    object[4] = lista.get(4);
+                    object[5] = lista.get(5);
+                    defaultTableModel.addRow(object);
+                    jTableVenta.setModel(defaultTableModel);
+                    totalVenta();
+                } else {
+                    JOptionPane.showMessageDialog(this, "No hay stock");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Escoger cantidad");
+            }
+        }
+    }
+    
+    void totalVenta(){
+        double total = 0;
+        int cantidad = 0;
+        double precio_producto = 0;
+        for (int i = 0; i < jTableVenta.getRowCount(); i++) {
+            cantidad = Integer.parseInt(jTableVenta.getValueAt(i, 3).toString());
+            precio_producto = Double.parseDouble(jTableVenta.getValueAt(i, 4).toString());
+            total = total + (cantidad * precio_producto);
+        }
+        jTextFieldTotal.setText("" + total);
     }
     
     void CentrarVentana(JInternalFrame form){
