@@ -1,16 +1,16 @@
 # LleveCasera
 Sistema de Ventas. Java 8 y MySQL 8
 
-## Capturas del software
+## Capturas de LleveCasera
 
 ### Inicio de sesión
-![alt text](CapturasSoftware/inicioSesion.png)
+![alt text](CapturasLleveCasera/inicioSesion.png)
 
 ### Pantalla principal
-![alt text](CapturasSoftware/pantallaPrincipal.png)
+![alt text](CapturasLleveCasera/vistaPrincipal.png)
 
 ### Mantenimiento cliente
-![alt text](CapturasSoftware/mantenimientoCliente.png)
+![alt text](CapturasLleveCasera/formMantenimiento.png)
 
 ### Registro venta
-![alt text](CapturasSoftware/registroVenta.png)
+![alt text](CapturasLleveCasera/registrarVenta.png)

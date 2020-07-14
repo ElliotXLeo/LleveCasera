@@ -39,10 +39,13 @@ public class VendedorForm extends javax.swing.JInternalFrame {
         jButtonActualizar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jButtonLimpiar = new javax.swing.JButton();
-        jPanelTabla = new javax.swing.JPanel();
-        jScrollPaneTabla = new javax.swing.JScrollPane();
+        jPanelVenvedor = new javax.swing.JPanel();
+        jScrollPaneVenvedor = new javax.swing.JScrollPane();
         jTableVenvedor = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("Vendedor");
 
         jPanelFormulario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -59,6 +62,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
 
         jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "0" }));
 
+        jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/add.png"))); // NOI18N
         jButtonAgregar.setText("Agregar");
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +70,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/actualizar.png"))); // NOI18N
         jButtonActualizar.setText("Actualizar");
         jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +78,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/salir.png"))); // NOI18N
         jButtonEliminar.setText("Eliminar");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +86,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/cancelar.png"))); // NOI18N
         jButtonLimpiar.setText("Limpiar");
         jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +151,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelVenvedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jTableVenvedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -159,26 +166,26 @@ public class VendedorForm extends javax.swing.JInternalFrame {
                 jTableVenvedorMouseClicked(evt);
             }
         });
-        jScrollPaneTabla.setViewportView(jTableVenvedor);
+        jScrollPaneVenvedor.setViewportView(jTableVenvedor);
 
-        javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
-        jPanelTabla.setLayout(jPanelTablaLayout);
-        jPanelTablaLayout.setHorizontalGroup(
-            jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelVenvedorLayout = new javax.swing.GroupLayout(jPanelVenvedor);
+        jPanelVenvedor.setLayout(jPanelVenvedorLayout);
+        jPanelVenvedorLayout.setHorizontalGroup(
+            jPanelVenvedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 622, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelTablaLayout.createSequentialGroup()
+            .addGroup(jPanelVenvedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelVenvedorLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneVenvedor, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
                     .addContainerGap()))
         );
-        jPanelTablaLayout.setVerticalGroup(
-            jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelVenvedorLayout.setVerticalGroup(
+            jPanelVenvedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 114, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTablaLayout.createSequentialGroup()
+            .addGroup(jPanelVenvedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVenvedorLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneVenvedor, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -190,7 +197,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelVenvedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -199,7 +206,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
                 .addContainerGap(10, Short.MAX_VALUE)
                 .addComponent(jPanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelVenvedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -344,8 +351,8 @@ public class VendedorForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelUsuario;
     private javax.swing.JPanel jPanelFormulario;
-    private javax.swing.JPanel jPanelTabla;
-    private javax.swing.JScrollPane jScrollPaneTabla;
+    private javax.swing.JPanel jPanelVenvedor;
+    private javax.swing.JScrollPane jScrollPaneVenvedor;
     private javax.swing.JTable jTableVenvedor;
     private javax.swing.JTextField jTextFieldCelular;
     private javax.swing.JTextField jTextFieldDNI;

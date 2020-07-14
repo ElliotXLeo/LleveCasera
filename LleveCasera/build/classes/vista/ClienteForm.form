@@ -2,6 +2,9 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
+    <Property name="closable" type="boolean" value="true"/>
+    <Property name="iconifiable" type="boolean" value="true"/>
+    <Property name="maximizable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Cliente"/>
   </Properties>
   <SyntheticProperties>
@@ -26,7 +29,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanelFormulario" max="32767" attributes="0"/>
-                  <Component id="jPanelTabla" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanelCliente" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -38,7 +41,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jPanelFormulario" min="-2" pref="160" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelTabla" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanelCliente" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -157,6 +160,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAgregar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/add.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
           <Events>
@@ -165,6 +171,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonActualizar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/actualizar.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
           </Properties>
           <Events>
@@ -173,6 +182,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonEliminar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/salir.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
           <Events>
@@ -181,6 +193,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonLimpiar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/cancelar.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpiar"/>
           </Properties>
           <Events>
@@ -189,7 +204,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanelTabla">
+    <Container class="javax.swing.JPanel" name="jPanelCliente">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -205,7 +220,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPaneTabla" pref="610" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneCliente" pref="610" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -217,7 +232,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPaneTabla" pref="144" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneCliente" pref="144" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -225,7 +240,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="jScrollPaneTabla">
+        <Container class="javax.swing.JScrollPane" name="jScrollPaneCliente">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>

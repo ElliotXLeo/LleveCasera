@@ -1,7 +1,7 @@
 package modelo;
 
 public class Cliente {
-    
+
     private int id_cliente;
     private String dni_cliente;
     private String nombre_cliente;
@@ -58,5 +58,5 @@ public class Cliente {
     public void setCelular_cliente(String celular_cliente) {
         this.celular_cliente = celular_cliente;
     }
-    
+
 }

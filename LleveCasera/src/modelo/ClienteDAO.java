@@ -6,19 +6,19 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteDAO implements CRUD{
-    
+public class ClienteDAO implements CRUD {
+
     PreparedStatement ps;
     ResultSet rs;
-    
+
     Conexion conexion = new Conexion();
     Connection connection;
-    
+
     public Cliente buscarCliente(String dni) {
-        Cliente cliente=new Cliente();
+        Cliente cliente = new Cliente();
         String sql = "select * from cliente where dni_cliente = ?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setString(1, dni);
             rs = ps.executeQuery();
@@ -33,13 +33,13 @@ public class ClienteDAO implements CRUD{
         }
         return cliente;
     }
-    
+
     @Override
     public int agregar(Object[] object) {
         int respuesta = 0;
         String sql = "insert into cliente (dni_cliente, nombre_cliente, celular_cliente, estado_cliente) values (?, ?, ?, ?);";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setObject(1, object[0]);
             ps.setObject(2, object[1]);
@@ -56,11 +56,11 @@ public class ClienteDAO implements CRUD{
         List<Cliente> lista = new ArrayList<>();
         String sql = "select * from cliente;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Cliente cliente=new Cliente();
+                Cliente cliente = new Cliente();
                 cliente.setId_cliente(rs.getInt(1));
                 cliente.setDni_cliente(rs.getString(2));
                 cliente.setNombre_cliente(rs.getString(3));
@@ -78,7 +78,7 @@ public class ClienteDAO implements CRUD{
         int respuesta = 0;
         String sql = "update cliente set dni_cliente=?, nombre_cliente=?, celular_cliente=?, estado_cliente=? where id_cliente=?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setObject(1, object[0]);
             ps.setObject(2, object[1]);
@@ -90,17 +90,17 @@ public class ClienteDAO implements CRUD{
         }
         return respuesta;
     }
-    
+
     @Override
     public void eliminar(int id) {
         String sql = "delete from cliente where id_cliente = ?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (Exception e) {
         }
     }
-    
+
 }

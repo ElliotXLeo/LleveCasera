@@ -1,20 +1,20 @@
 package modelo;
 
 public class DetalleVenta {
-    
+
     private int id_detalle_venta;
     private int cantidad_venta;
-    private double precio_total_venta;
+    private double subtotal_venta;
     private int venta_id_venta;
     private int producto_id_producto;
 
     public DetalleVenta() {
     }
 
-    public DetalleVenta(int id_detalle_venta, int cantidad_venta, double precio_total_venta, int venta_id_venta, int producto_id_producto) {
+    public DetalleVenta(int id_detalle_venta, int cantidad_venta, double subtotal_venta, int venta_id_venta, int producto_id_producto) {
         this.id_detalle_venta = id_detalle_venta;
         this.cantidad_venta = cantidad_venta;
-        this.precio_total_venta = precio_total_venta;
+        this.subtotal_venta = subtotal_venta;
         this.venta_id_venta = venta_id_venta;
         this.producto_id_producto = producto_id_producto;
     }
@@ -43,12 +43,12 @@ public class DetalleVenta {
         this.cantidad_venta = cantidad_venta;
     }
 
-    public double getPrecio_total_venta() {
-        return precio_total_venta;
+    public double getSubtotal_venta() {
+        return subtotal_venta;
     }
 
-    public void setPrecio_total_venta(double precio_total_venta) {
-        this.precio_total_venta = precio_total_venta;
+    public void setSubtotal_venta(double subtotal_venta) {
+        this.subtotal_venta = subtotal_venta;
     }
 
     public int getVenta_id_venta() {
@@ -58,5 +58,5 @@ public class DetalleVenta {
     public void setVenta_id_venta(int venta_id_venta) {
         this.venta_id_venta = venta_id_venta;
     }
-    
+
 }

@@ -37,10 +37,13 @@ public class ClienteForm extends javax.swing.JInternalFrame {
         jButtonActualizar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jButtonLimpiar = new javax.swing.JButton();
-        jPanelTabla = new javax.swing.JPanel();
-        jScrollPaneTabla = new javax.swing.JScrollPane();
+        jPanelCliente = new javax.swing.JPanel();
+        jScrollPaneCliente = new javax.swing.JScrollPane();
         jTableCliente = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("Cliente");
 
         jPanelFormulario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -55,6 +58,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
 
         jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "0" }));
 
+        jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/add.png"))); // NOI18N
         jButtonAgregar.setText("Agregar");
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +66,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/actualizar.png"))); // NOI18N
         jButtonActualizar.setText("Actualizar");
         jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +74,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/salir.png"))); // NOI18N
         jButtonEliminar.setText("Eliminar");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +82,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/cancelar.png"))); // NOI18N
         jButtonLimpiar.setText("Limpiar");
         jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +141,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                 .addGap(328, 328, 328))
         );
 
-        jPanelTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jTableCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,26 +156,26 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                 jTableClienteMouseClicked(evt);
             }
         });
-        jScrollPaneTabla.setViewportView(jTableCliente);
+        jScrollPaneCliente.setViewportView(jTableCliente);
 
-        javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
-        jPanelTabla.setLayout(jPanelTablaLayout);
-        jPanelTablaLayout.setHorizontalGroup(
-            jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelClienteLayout = new javax.swing.GroupLayout(jPanelCliente);
+        jPanelCliente.setLayout(jPanelClienteLayout);
+        jPanelClienteLayout.setHorizontalGroup(
+            jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 622, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelTablaLayout.createSequentialGroup()
+            .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelClienteLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
                     .addContainerGap()))
         );
-        jPanelTablaLayout.setVerticalGroup(
-            jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelClienteLayout.setVerticalGroup(
+            jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 156, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelTablaLayout.createSequentialGroup()
+            .addGroup(jPanelClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelClienteLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -180,7 +187,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -189,7 +196,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -324,9 +331,9 @@ public class ClienteForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelDNI;
     private javax.swing.JLabel jLabelEstado;
     private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JPanel jPanelCliente;
     private javax.swing.JPanel jPanelFormulario;
-    private javax.swing.JPanel jPanelTabla;
-    private javax.swing.JScrollPane jScrollPaneTabla;
+    private javax.swing.JScrollPane jScrollPaneCliente;
     private javax.swing.JTable jTableCliente;
     private javax.swing.JTextField jTextFieldCelular;
     private javax.swing.JTextField jTextFieldDNI;

@@ -1,3 +1,25 @@
+/* TODO: validar */
+
+/* listarVentaDetalle */
+select
+	v.id_venta,
+    v.fecha_venta,
+    vd.nombre_vendedor,
+    c.nombre_cliente,
+    p.id_producto,
+    p.nombre_producto,
+    p.precio_producto,
+    dv.cantidad_venta,
+    dv.subtotal_venta,
+    v.total_venta
+from
+	venta as v inner join
+    detalle_venta as dv on v.id_venta=dv.venta_id_venta inner join
+    producto as p on dv.producto_id_producto=p.id_producto inner join
+    vendedor as vd on v.vendedor_id_vendedor=vd.id_vendedor inner join
+    cliente as c on v.cliente_id_cliente=c.id_cliente
+where v.id_venta=1;
+
 /* actualizarStock */
 -- actualizarStock
 update producto set stock_producto = 150 where id_producto = 1;
@@ -11,7 +33,7 @@ insert into detalle_venta (cantidad_venta, precio_total_venta, venta_id_venta, p
 select max(id_venta) from venta;
 
 -- guardarVenta
-insert into venta (serie_venta, fecha_venta, monto_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values ('000001', '2020-07-07', 43, 1, 1, 1);
+insert into venta (fecha_venta, monto_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values ('2020-07-07', 43, 1, 1, 1);
 
 
 /* listarProducto */
@@ -77,3 +99,17 @@ update vendedor set dni_vendedor='16178523', nombre_vendedor='Marilú', celular_
 
 -- eliminar
 delete from vendedor where id_vendedor = 5;
+
+/* CRUD venta*/
+describe venta;
+-- agregar
+insert into venta (fecha_venta, total_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values ('2020-07-14', 43, 1, 1, 1);
+
+-- listar
+select * from venta;
+
+-- actualizar
+update venta set fecha_venta='2020-07-13', total_venta=40, estado_venta='1', cliente_id_cliente='2', vendedor_id_vendedor=2 where id_venta=9;
+
+-- eliminar
+delete from venta where id_venta = 9;

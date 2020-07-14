@@ -18,7 +18,7 @@ public class VendedorDAO implements CRUD {
         Vendedor entidadVendedor = new Vendedor();
         String sql = "select * from vendedor where user_vendedor = ? and dni_vendedor = ?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setString(1, user);
             ps.setString(2, dni);
@@ -41,7 +41,7 @@ public class VendedorDAO implements CRUD {
         int respuesta = 0;
         String sql = "insert into vendedor(dni_vendedor, nombre_vendedor, celular_vendedor, estado_vendedor, user_vendedor) values (?, ?, ?, ?, ?);";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setObject(1, object[0]);
             ps.setObject(2, object[1]);
@@ -59,7 +59,7 @@ public class VendedorDAO implements CRUD {
         List<Vendedor> lista = new ArrayList<>();
         String sql = "select * from vendedor;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -82,7 +82,7 @@ public class VendedorDAO implements CRUD {
         int respuesta = 0;
         String sql = "update vendedor set dni_vendedor=?, nombre_vendedor=?, celular_vendedor=?, estado_vendedor=?, user_vendedor=? where id_vendedor=?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setObject(1, object[0]);
             ps.setObject(2, object[1]);
@@ -100,7 +100,7 @@ public class VendedorDAO implements CRUD {
     public void eliminar(int id) {
         String sql = "delete from vendedor where id_vendedor = ?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
