@@ -2,6 +2,9 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
+    <Property name="closable" type="boolean" value="true"/>
+    <Property name="iconifiable" type="boolean" value="true"/>
+    <Property name="maximizable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Ventas"/>
   </Properties>
   <SyntheticProperties>
@@ -82,7 +85,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="344" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -158,27 +161,27 @@
                       <Component id="jLabelPrecio" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelCantidad" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jTextFieldDNI" max="32767" attributes="0"/>
-                      <Component id="jTextFieldPrecio" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jSpinnerCantidad" alignment="1" pref="250" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTextFieldBuscarProducto" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jComboBoxNombreProducto" min="-2" pref="200" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jTextFieldBuscarProducto" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jComboBoxNombreProducto" min="-2" pref="178" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jTextFieldPrecio" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jSpinnerCantidad" alignment="0" min="-2" pref="235" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jTextFieldDNI" alignment="1" min="-2" pref="235" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jButtonBuscarProducto" pref="80" max="32767" attributes="0"/>
-                          <Component id="jButtonBuscarCliente" pref="80" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="jButtonAgregar" min="-2" pref="80" max="-2" attributes="0"/>
-                      <Component id="jTextFieldFecha" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jButtonBuscarProducto" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jButtonBuscarCliente" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jButtonAgregar" alignment="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jTextFieldFecha" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabelCliente" min="-2" max="-2" attributes="0"/>
@@ -187,7 +190,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabelVendedor" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jTextFieldVendedor" min="-2" pref="300" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -207,21 +210,21 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTextFieldDNI" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelDNI" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldCliente" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                      <Component id="jButtonBuscarCliente" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jButtonBuscarCliente" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jButtonBuscarProducto" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jTextFieldBuscarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBoxNombreProducto" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jButtonBuscarProducto" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelBuscarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -294,6 +297,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonBuscarCliente">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/buscar.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
@@ -302,6 +308,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonBuscarProducto">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/buscar.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
@@ -310,6 +319,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAgregar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/add.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
           <Events>
@@ -362,7 +374,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPaneDetalleVenta" pref="829" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneDetalleVenta" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -454,9 +466,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonCancelar" min="-2" pref="230" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jButtonVenta" pref="235" max="32767" attributes="0"/>
+                  <Component id="jButtonCancelar" min="-2" pref="215" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="jButtonVenta" min="-2" pref="215" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabelTotal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -483,6 +495,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonCancelar">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/cancelar.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
           <Events>
@@ -491,6 +506,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonVenta">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/enter.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Registrar venta"/>
           </Properties>
           <Events>
@@ -499,6 +517,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelTotal">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/recursos/img/money.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Total"/>
           </Properties>
         </Component>

@@ -97,6 +97,9 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jLabelTotal = new javax.swing.JLabel();
         jTextFieldTotal = new javax.swing.JTextField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("Ventas");
 
         jPanelTitulo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -129,7 +132,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelIdVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabelCelular))))
-                .addContainerGap(344, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelTituloLayout.setVerticalGroup(
             jPanelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,6 +167,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/buscar.png"))); // NOI18N
         jButtonBuscarCliente.setText("Buscar");
         jButtonBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,6 +175,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonBuscarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/buscar.png"))); // NOI18N
         jButtonBuscarProducto.setText("Buscar");
         jButtonBuscarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +183,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/add.png"))); // NOI18N
         jButtonAgregar.setText("Agregar");
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,23 +210,23 @@ public class VentaForm extends javax.swing.JInternalFrame {
                     .addComponent(jLabelBuscarProducto)
                     .addComponent(jLabelPrecio)
                     .addComponent(jLabelCantidad))
-                .addGap(16, 16, 16)
-                .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldDNI)
-                    .addComponent(jTextFieldPrecio)
-                    .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelFormularioLayout.createSequentialGroup()
-                        .addComponent(jTextFieldBuscarProducto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButtonBuscarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                        .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                    .addComponent(jButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelFormularioLayout.createSequentialGroup()
+                            .addComponent(jTextFieldBuscarProducto)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jComboBoxNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDNI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonBuscarProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelFormularioLayout.createSequentialGroup()
                         .addComponent(jLabelCliente)
@@ -228,7 +234,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
                         .addComponent(jTextFieldCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelFormularioLayout.createSequentialGroup()
                         .addComponent(jLabelVendedor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextFieldVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelFormularioLayout.createSequentialGroup()
                         .addComponent(jLabelProducto)
@@ -253,9 +259,9 @@ public class VentaForm extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextFieldBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBoxNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBoxNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonBuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelBuscarProducto)
                         .addComponent(jLabelProducto)
@@ -295,7 +301,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
             jPanelDetalleVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDetalleVentaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPaneDetalleVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
+                .addComponent(jScrollPaneDetalleVenta)
                 .addContainerGap())
         );
         jPanelDetalleVentaLayout.setVerticalGroup(
@@ -308,6 +314,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
 
         jPanelRegistrarVenta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/cancelar.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,6 +322,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/enter.png"))); // NOI18N
         jButtonVenta.setText("Registrar venta");
         jButtonVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -322,6 +330,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabelTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/money.png"))); // NOI18N
         jLabelTotal.setText("Total");
 
         javax.swing.GroupLayout jPanelRegistrarVentaLayout = new javax.swing.GroupLayout(jPanelRegistrarVenta);
@@ -330,9 +339,9 @@ public class VentaForm extends javax.swing.JInternalFrame {
             jPanelRegistrarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRegistrarVentaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jButtonVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -607,6 +616,7 @@ public class VentaForm extends javax.swing.JInternalFrame {
         jTextFieldProducto.setText("");
         jTextFieldStock.setText("");
         jTextFieldDNI.requestFocus();
+        jTextFieldTotal.setText("");
     }
 
     void centrarVentana(JInternalFrame form) {

@@ -43,6 +43,9 @@ public class VendedorForm extends javax.swing.JInternalFrame {
         jScrollPaneVenvedor = new javax.swing.JScrollPane();
         jTableVenvedor = new javax.swing.JTable();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("Vendedor");
 
         jPanelFormulario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -59,6 +62,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
 
         jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "0" }));
 
+        jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/add.png"))); // NOI18N
         jButtonAgregar.setText("Agregar");
         jButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +70,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/actualizar.png"))); // NOI18N
         jButtonActualizar.setText("Actualizar");
         jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +78,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/salir.png"))); // NOI18N
         jButtonEliminar.setText("Eliminar");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +86,7 @@ public class VendedorForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jButtonLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/cancelar.png"))); // NOI18N
         jButtonLimpiar.setText("Limpiar");
         jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -1,9 +1,11 @@
-drop database bd_ventas;
+drop database lleve_casera;
 
 select * from venta;
 select * from detalle_venta;
 select * from cliente;
 
+/* validar compras */
+delete from cliente where id_cliente = 1;
 
 /* actualizarStock */
 -- actualizarStock
