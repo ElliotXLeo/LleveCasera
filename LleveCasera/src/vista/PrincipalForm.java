@@ -5,7 +5,7 @@ import javax.swing.JInternalFrame;
 
 public class PrincipalForm extends javax.swing.JFrame {
 
-        public PrincipalForm() {
+    public PrincipalForm() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
@@ -19,7 +19,7 @@ public class PrincipalForm extends javax.swing.JFrame {
         jMenuMenu = new javax.swing.JMenu();
         jMenuItemAyuda = new javax.swing.JMenuItem();
         jMenuItemSalir = new javax.swing.JMenuItem();
-        jMenuVentas = new javax.swing.JMenu();
+        jMenuVenta = new javax.swing.JMenu();
         jMenuItemRegistrar = new javax.swing.JMenuItem();
         jMenuMantenimiento = new javax.swing.JMenu();
         jMenuItemCliente = new javax.swing.JMenuItem();
@@ -58,8 +58,8 @@ public class PrincipalForm extends javax.swing.JFrame {
 
         jMenuBarMenu.add(jMenuMenu);
 
-        jMenuVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logoventas.png"))); // NOI18N
-        jMenuVentas.setText("Ventas");
+        jMenuVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logoventas.png"))); // NOI18N
+        jMenuVenta.setText("Venta");
 
         jMenuItemRegistrar.setText("Registrar");
         jMenuItemRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,9 +67,9 @@ public class PrincipalForm extends javax.swing.JFrame {
                 jMenuItemRegistrarActionPerformed(evt);
             }
         });
-        jMenuVentas.add(jMenuItemRegistrar);
+        jMenuVenta.add(jMenuItemRegistrar);
 
-        jMenuBarMenu.add(jMenuVentas);
+        jMenuBarMenu.add(jMenuVenta);
 
         jMenuMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logomantenimiento.png"))); // NOI18N
         jMenuMantenimiento.setText("Mantenimiento");
@@ -147,48 +147,14 @@ public class PrincipalForm extends javax.swing.JFrame {
         VendedorForm vendedorForm = new VendedorForm();
         CentrarVentana(vendedorForm);
     }//GEN-LAST:event_jMenuItemVendedorActionPerformed
-    
-    void CentrarVentana(JInternalFrame form){
+
+    void CentrarVentana(JInternalFrame form) {
         jDesktopPanePrincipal.add(form);
         Dimension dimensionPrincipal = jDesktopPanePrincipal.getSize();
         Dimension dimensionVentasForm = form.getSize();
-        form.setLocation((dimensionPrincipal.width - dimensionVentasForm.width)/2, (dimensionPrincipal.height-dimensionVentasForm.height)/2);
+        form.setLocation((dimensionPrincipal.width - dimensionVentasForm.width) / 2, (dimensionPrincipal.height - dimensionVentasForm.height) / 2);
         form.show();
     }
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new PrincipalForm().setVisible(true);
-//            }
-//        });
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane jDesktopPanePrincipal;
@@ -203,6 +169,6 @@ public class PrincipalForm extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuMantenimiento;
     private javax.swing.JMenu jMenuMenu;
     private javax.swing.JMenu jMenuReporte;
-    private javax.swing.JMenu jMenuVentas;
+    private javax.swing.JMenu jMenuVenta;
     // End of variables declaration//GEN-END:variables
 }

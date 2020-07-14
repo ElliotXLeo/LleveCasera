@@ -1,7 +1,7 @@
 package modelo;
 
 public class Producto {
-    
+
     private int id_producto;
     private String nombre_producto;
     private double precio_producto;
@@ -58,5 +58,5 @@ public class Producto {
     public void setStock_producto(int stock_producto) {
         this.stock_producto = stock_producto;
     }
-    
+
 }

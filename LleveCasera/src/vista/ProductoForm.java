@@ -18,7 +18,6 @@ public class ProductoForm extends javax.swing.JInternalFrame {
     public ProductoForm() {
         initComponents();
         listarTabla();
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -38,8 +37,8 @@ public class ProductoForm extends javax.swing.JInternalFrame {
         jButtonActualizar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
         jButtonLimpiar = new javax.swing.JButton();
-        jPanelTabla = new javax.swing.JPanel();
-        jScrollPaneTabla = new javax.swing.JScrollPane();
+        jPanelProducto = new javax.swing.JPanel();
+        jScrollPaneProducto = new javax.swing.JScrollPane();
         jTableProducto = new javax.swing.JTable();
 
         setTitle("Producto");
@@ -135,7 +134,7 @@ public class ProductoForm extends javax.swing.JInternalFrame {
                 .addGap(328, 328, 328))
         );
 
-        jPanelTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelProducto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jTableProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -150,26 +149,26 @@ public class ProductoForm extends javax.swing.JInternalFrame {
                 jTableProductoMouseClicked(evt);
             }
         });
-        jScrollPaneTabla.setViewportView(jTableProducto);
+        jScrollPaneProducto.setViewportView(jTableProducto);
 
-        javax.swing.GroupLayout jPanelTablaLayout = new javax.swing.GroupLayout(jPanelTabla);
-        jPanelTabla.setLayout(jPanelTablaLayout);
-        jPanelTablaLayout.setHorizontalGroup(
-            jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelProductoLayout = new javax.swing.GroupLayout(jPanelProducto);
+        jPanelProducto.setLayout(jPanelProductoLayout);
+        jPanelProductoLayout.setHorizontalGroup(
+            jPanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 622, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelTablaLayout.createSequentialGroup()
+            .addGroup(jPanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelProductoLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
                     .addContainerGap()))
         );
-        jPanelTablaLayout.setVerticalGroup(
-            jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelProductoLayout.setVerticalGroup(
+            jPanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 156, Short.MAX_VALUE)
-            .addGroup(jPanelTablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelTablaLayout.createSequentialGroup()
+            .addGroup(jPanelProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelProductoLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPaneTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -181,7 +180,7 @@ public class ProductoForm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -190,7 +189,7 @@ public class ProductoForm extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -326,8 +325,8 @@ public class ProductoForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelPrecio;
     private javax.swing.JLabel jLabelStock;
     private javax.swing.JPanel jPanelFormulario;
-    private javax.swing.JPanel jPanelTabla;
-    private javax.swing.JScrollPane jScrollPaneTabla;
+    private javax.swing.JPanel jPanelProducto;
+    private javax.swing.JScrollPane jScrollPaneProducto;
     private javax.swing.JTable jTableProducto;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldPrecio;

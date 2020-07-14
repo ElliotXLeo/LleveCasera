@@ -6,19 +6,19 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductoDAO implements CRUD{
-    
+public class ProductoDAO implements CRUD {
+
     PreparedStatement ps;
     ResultSet rs;
-    
+
     Conexion conexion = new Conexion();
     Connection connection;
-    
-    public int actualizarStock(int stock_producto, int id_producto){
+
+    public int actualizarStock(int stock_producto, int id_producto) {
         int respuesta = 0;
         String sql = "update producto set stock_producto = ? where id_producto = ?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setInt(1, stock_producto);
             ps.setInt(2, id_producto);
@@ -27,14 +27,13 @@ public class ProductoDAO implements CRUD{
         }
         return respuesta;
     }
-    
-    
-    public ArrayList<String> listarProducto(){
+
+    public ArrayList<String> listarProducto() {
         ArrayList<String> lista = new ArrayList<String>();
-        Producto producto=new Producto();
+        Producto producto = new Producto();
         String sql = "select * from producto order by nombre_producto;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -44,12 +43,12 @@ public class ProductoDAO implements CRUD{
         }
         return lista;
     }
-          
-    public Producto buscarProductoNombre(String nombreProducto){
-        Producto producto=new Producto();
+
+    public Producto buscarProductoNombre(String nombreProducto) {
+        Producto producto = new Producto();
         String sql = "select * from producto where nombre_producto=?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setString(1, nombreProducto);
             rs = ps.executeQuery();
@@ -64,12 +63,12 @@ public class ProductoDAO implements CRUD{
         }
         return producto;
     }
-    
-    public Producto buscarProductoId(int id){
-        Producto producto=new Producto();
+
+    public Producto buscarProductoId(int id) {
+        Producto producto = new Producto();
         String sql = "select * from producto where id_producto=?;";
         try {
-            connection = conexion.Conectar();
+//            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
             rs = ps.executeQuery();
@@ -84,13 +83,13 @@ public class ProductoDAO implements CRUD{
         }
         return producto;
     }
-    
+
     @Override
     public int agregar(Object[] object) {
         int respuesta = 0;
         String sql = "insert into producto (nombre_producto, precio_producto, stock_producto, estado_producto) values (?, ?, ?, ?);";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setObject(1, object[0]);
             ps.setObject(2, object[1]);
@@ -107,11 +106,11 @@ public class ProductoDAO implements CRUD{
         List<Producto> lista = new ArrayList<>();
         String sql = "select * from producto;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Producto producto=new Producto();
+                Producto producto = new Producto();
                 producto.setId_producto(rs.getInt(1));
                 producto.setNombre_producto(rs.getString(2));
                 producto.setPrecio_producto(rs.getDouble(3));
@@ -129,7 +128,7 @@ public class ProductoDAO implements CRUD{
         int respuesta = 0;
         String sql = "update producto set nombre_producto=?, precio_producto=?, stock_producto=?, estado_producto=? where id_producto=?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setObject(1, object[0]);
             ps.setObject(2, object[1]);
@@ -146,12 +145,12 @@ public class ProductoDAO implements CRUD{
     public void eliminar(int id) {
         String sql = "delete from producto where id_producto = ?;";
         try {
-            connection = conexion.Conectar();
+            connection = conexion.conectar();
             ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (Exception e) {
         }
     }
-    
+
 }

@@ -1,3 +1,10 @@
+drop database bd_ventas;
+
+select * from venta;
+select * from detalle_venta;
+select * from cliente;
+
+
 /* actualizarStock */
 -- actualizarStock
 update producto set stock_producto = 150 where id_producto = 1;
@@ -11,7 +18,7 @@ insert into detalle_venta (cantidad_venta, precio_total_venta, venta_id_venta, p
 select max(id_venta) from venta;
 
 -- guardarVenta
-insert into venta (serie_venta, fecha_venta, monto_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values ('000001', '2020-07-07', 43, 1, 1, 1);
+insert into venta (fecha_venta, monto_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values ('2020-07-07', 43, 1, 1, 1);
 
 
 /* listarProducto */

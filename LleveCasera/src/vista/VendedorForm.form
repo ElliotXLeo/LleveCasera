@@ -26,7 +26,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanelFormulario" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanelTabla" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanelVenvedor" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -38,7 +38,7 @@
               <EmptySpace pref="10" max="32767" attributes="0"/>
               <Component id="jPanelFormulario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelTabla" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanelVenvedor" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -203,7 +203,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanelTabla">
+    <Container class="javax.swing.JPanel" name="jPanelVenvedor">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -219,7 +219,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPaneTabla" pref="610" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneVenvedor" pref="610" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -231,7 +231,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPaneTabla" pref="102" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneVenvedor" pref="102" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -239,7 +239,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="jScrollPaneTabla">
+        <Container class="javax.swing.JScrollPane" name="jScrollPaneVenvedor">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
