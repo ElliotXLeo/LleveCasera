@@ -25,8 +25,9 @@ public class PrincipalForm extends javax.swing.JFrame {
         jMenuItemCliente = new javax.swing.JMenuItem();
         jMenuItemProducto = new javax.swing.JMenuItem();
         jMenuItemVendedor = new javax.swing.JMenuItem();
-        jMenuReporte = new javax.swing.JMenu();
         jMenuItemVenta = new javax.swing.JMenuItem();
+        jMenuReporte = new javax.swing.JMenu();
+        jMenuItemReporteVenta = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lleve Casera");
@@ -98,13 +99,21 @@ public class PrincipalForm extends javax.swing.JFrame {
         });
         jMenuMantenimiento.add(jMenuItemVendedor);
 
+        jMenuItemVenta.setText("Venta");
+        jMenuItemVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemVentaActionPerformed(evt);
+            }
+        });
+        jMenuMantenimiento.add(jMenuItemVenta);
+
         jMenuBarMenu.add(jMenuMantenimiento);
 
         jMenuReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/reportes.png"))); // NOI18N
         jMenuReporte.setText("Reporte");
 
-        jMenuItemVenta.setText("Venta");
-        jMenuReporte.add(jMenuItemVenta);
+        jMenuItemReporteVenta.setText("Venta");
+        jMenuReporte.add(jMenuItemReporteVenta);
 
         jMenuBarMenu.add(jMenuReporte);
 
@@ -129,7 +138,7 @@ public class PrincipalForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemSalirActionPerformed
 
     private void jMenuItemRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegistrarActionPerformed
-        VentaForm ventasForm = new VentaForm();
+        RegistrarVentaForm ventasForm = new RegistrarVentaForm();
         CentrarVentana(ventasForm);
     }//GEN-LAST:event_jMenuItemRegistrarActionPerformed
 
@@ -148,6 +157,11 @@ public class PrincipalForm extends javax.swing.JFrame {
         CentrarVentana(vendedorForm);
     }//GEN-LAST:event_jMenuItemVendedorActionPerformed
 
+    private void jMenuItemVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVentaActionPerformed
+        VentaForm ventaForm = new VentaForm();
+        CentrarVentana(ventaForm);
+    }//GEN-LAST:event_jMenuItemVentaActionPerformed
+
     void CentrarVentana(JInternalFrame form) {
         jDesktopPanePrincipal.add(form);
         Dimension dimensionPrincipal = jDesktopPanePrincipal.getSize();
@@ -163,6 +177,7 @@ public class PrincipalForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCliente;
     private javax.swing.JMenuItem jMenuItemProducto;
     private javax.swing.JMenuItem jMenuItemRegistrar;
+    private javax.swing.JMenuItem jMenuItemReporteVenta;
     private javax.swing.JMenuItem jMenuItemSalir;
     private javax.swing.JMenuItem jMenuItemVendedor;
     private javax.swing.JMenuItem jMenuItemVenta;

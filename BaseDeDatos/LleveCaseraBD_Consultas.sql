@@ -1,11 +1,24 @@
-drop database lleve_casera;
+/* TODO: validar */
 
-select * from venta;
-select * from detalle_venta;
-select * from cliente;
-
-/* validar compras */
-delete from cliente where id_cliente = 1;
+/* listarVentaDetalle */
+select
+	v.id_venta,
+    v.fecha_venta,
+    vd.nombre_vendedor,
+    c.nombre_cliente,
+    p.id_producto,
+    p.nombre_producto,
+    p.precio_producto,
+    dv.cantidad_venta,
+    dv.subtotal_venta,
+    v.total_venta
+from
+	venta as v inner join
+    detalle_venta as dv on v.id_venta=dv.venta_id_venta inner join
+    producto as p on dv.producto_id_producto=p.id_producto inner join
+    vendedor as vd on v.vendedor_id_vendedor=vd.id_vendedor inner join
+    cliente as c on v.cliente_id_cliente=c.id_cliente
+where v.id_venta=1;
 
 /* actualizarStock */
 -- actualizarStock
@@ -86,3 +99,17 @@ update vendedor set dni_vendedor='16178523', nombre_vendedor='Marilú', celular_
 
 -- eliminar
 delete from vendedor where id_vendedor = 5;
+
+/* CRUD venta*/
+describe venta;
+-- agregar
+insert into venta (fecha_venta, total_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values ('2020-07-14', 43, 1, 1, 1);
+
+-- listar
+select * from venta;
+
+-- actualizar
+update venta set fecha_venta='2020-07-13', total_venta=40, estado_venta='1', cliente_id_cliente='2', vendedor_id_vendedor=2 where id_venta=9;
+
+-- eliminar
+delete from venta where id_venta = 9;
