@@ -12,21 +12,6 @@ public class DetalleVentaDAO {
     Conexion conexion = new Conexion();
     Connection connection;
 
-    public String ultimoIdVenta() {
-        String ultimaSerieVenta = "";
-        String sql = "select max(id_venta) from venta;";
-        try {
-            connection = conexion.conectar();
-            ps = connection.prepareStatement(sql);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                ultimaSerieVenta = rs.getString(1);
-            }
-        } catch (Exception e) {
-        }
-        return ultimaSerieVenta;
-    }
-
     public int registrarDetalleVenta(DetalleVenta detalleVenta) {
         int respuesta = 0;
         String sql = "insert into detalle_venta (cantidad_venta, subtotal_venta, venta_id_venta, producto_id_producto) values (?, ?, ?, ?);";
@@ -42,4 +27,5 @@ public class DetalleVentaDAO {
         }
         return respuesta;
     }
+    
 }

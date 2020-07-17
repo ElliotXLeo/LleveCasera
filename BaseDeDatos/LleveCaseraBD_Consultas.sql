@@ -1,4 +1,7 @@
 /* TODO: validar */
+drop database lleve_casera;
+select * from venta;
+select * from detalle_venta;
 
 /* listarVentaDetalle */
 select
