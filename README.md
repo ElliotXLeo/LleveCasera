@@ -14,3 +14,6 @@ Sistema de Ventas. Java 8 y MySQL 8
 
 ### Registro venta
 ![alt text](CapturasLleveCasera/registrarVenta.png)
+
+### Reporte venta
+![alt text](CapturasLleveCasera/reporteVenta.png)
