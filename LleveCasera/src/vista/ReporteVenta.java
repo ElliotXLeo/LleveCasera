@@ -4,6 +4,7 @@ public class ReporteVenta extends javax.swing.JInternalFrame {
 
     public ReporteVenta() {
         initComponents();
+        jTextAreaReporteVenta.setText(RegistrarVentaForm.ventaRegistrada);
     }
 
     @SuppressWarnings("unchecked")
@@ -13,10 +14,14 @@ public class ReporteVenta extends javax.swing.JInternalFrame {
         jPanelReporteVenta = new javax.swing.JPanel();
         jScrollPaneReporteVenta = new javax.swing.JScrollPane();
         jTextAreaReporteVenta = new javax.swing.JTextArea();
+        jPanelLogo = new javax.swing.JPanel();
+        jLabelLogo = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
+        setTitle("Reporte de venta");
+        setToolTipText("");
 
         jPanelReporteVenta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -24,20 +29,45 @@ public class ReporteVenta extends javax.swing.JInternalFrame {
         jTextAreaReporteVenta.setRows(5);
         jScrollPaneReporteVenta.setViewportView(jTextAreaReporteVenta);
 
+        jPanelLogo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanelLogoLayout = new javax.swing.GroupLayout(jPanelLogo);
+        jPanelLogo.setLayout(jPanelLogoLayout);
+        jPanelLogoLayout.setHorizontalGroup(
+            jPanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLogoLayout.createSequentialGroup()
+                .addGap(268, 268, 268)
+                .addComponent(jLabelLogo)
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+        jPanelLogoLayout.setVerticalGroup(
+            jPanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLogoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelLogo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanelReporteVentaLayout = new javax.swing.GroupLayout(jPanelReporteVenta);
         jPanelReporteVenta.setLayout(jPanelReporteVentaLayout);
         jPanelReporteVentaLayout.setHorizontalGroup(
             jPanelReporteVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelReporteVentaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPaneReporteVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addGroup(jPanelReporteVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneReporteVenta)
+                    .addComponent(jPanelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelReporteVentaLayout.setVerticalGroup(
             jPanelReporteVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelReporteVentaLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelReporteVentaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPaneReporteVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                .addComponent(jPanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPaneReporteVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -63,6 +93,8 @@ public class ReporteVenta extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JPanel jPanelLogo;
     private javax.swing.JPanel jPanelReporteVenta;
     private javax.swing.JScrollPane jScrollPaneReporteVenta;
     private javax.swing.JTextArea jTextAreaReporteVenta;

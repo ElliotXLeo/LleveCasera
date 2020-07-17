@@ -35,7 +35,7 @@ public class RegistrarVentaForm extends javax.swing.JInternalFrame {
 
     Calendar calendar = new GregorianCalendar();
     
-    public static String ventaRegistrada;
+    public static String ventaRegistrada = "";
 
     public RegistrarVentaForm() {
         initComponents();
@@ -445,6 +445,7 @@ public class RegistrarVentaForm extends javax.swing.JInternalFrame {
         } else {
             respuesta = JOptionPane.showConfirmDialog(this, "¿Comprar?");
             if (respuesta == 0) {
+            reporteVenta();
             registrarVenta();
             registrarDetalleVenta();
             actualizarStock();
@@ -453,6 +454,8 @@ public class RegistrarVentaForm extends javax.swing.JInternalFrame {
             idVenta();
             }
         }
+        ReporteVenta reporteVenta = new ReporteVenta();
+        CentrarVentana(reporteVenta);
     }//GEN-LAST:event_jButtonVentaActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
@@ -468,7 +471,7 @@ public class RegistrarVentaForm extends javax.swing.JInternalFrame {
         eliminar();
         totalVenta();
     }//GEN-LAST:event_jButtonCancelar1ActionPerformed
-    
+       
     void idVenta() {
         int ultimaSerieVenta = ventaDAO.ultimoIdVenta();
         int idVenta = 0;
@@ -577,7 +580,39 @@ public class RegistrarVentaForm extends javax.swing.JInternalFrame {
         }
         jTextFieldTotal.setText("" + total);
     }
+    
+    void reporteVenta(){
+        int venta_id_venta = ventaDAO.ultimoIdVenta();
+        ventaRegistrada += "N°: " + venta_id_venta + "\n";
+        ventaRegistrada += "Cliente\t: " + cliente.getNombre_cliente() + "\t\t";
+        ventaRegistrada += "Vendedor\t: " + LoginForm.vendedor.getNombre_vendedor();
+        ventaRegistrada += "\n\nCódigo\tProducto\tCantidad\tPrecio\tSub Total\n";
+        for (int i = 0; i < jTableDetalleVenta.getRowCount(); i++) {
+            ventaRegistrada += Integer.parseInt(jTableDetalleVenta.getValueAt(i, 0).toString()) + "\t";
+            ventaRegistrada += jTableDetalleVenta.getValueAt(i, 1).toString() + "\t";
+            ventaRegistrada += Integer.parseInt(jTableDetalleVenta.getValueAt(i, 2).toString()) + "\t";
+            ventaRegistrada += Double.parseDouble(jTableDetalleVenta.getValueAt(i, 3).toString()) + "\t";
+            ventaRegistrada += Double.parseDouble(jTableDetalleVenta.getValueAt(i, 4).toString()) + "\t";
+            ventaRegistrada += "\n";
+        }
+        ventaRegistrada += "\t\t\tTotal\t" + jTextFieldTotal.getText();
+    }
+    
+    void registrarVenta() {
+        String fecha_venta = jTextFieldFecha.getText();
+        double total_venta = Double.parseDouble(jTextFieldTotal.getText());
+        String estado_venta = "1";
+        int id_cliente = cliente.getId_cliente();
+        int id_vendedor = Integer.parseInt(jTextFieldVendedor.getText());
 
+        venta.setFecha_venta(fecha_venta);
+        venta.setTotal_venta(total_venta);
+        venta.setEstado_venta(estado_venta);
+        venta.setCliente_id_cliente(id_cliente);
+        venta.setVendedor_id_vendedor(id_vendedor);
+        ventaDAO.registrarVenta(venta);
+    }
+    
     void registrarDetalleVenta() {
         int venta_id_venta = ventaDAO.ultimoIdVenta();
         int cantidad_venta;
@@ -593,21 +628,6 @@ public class RegistrarVentaForm extends javax.swing.JInternalFrame {
             detalleVenta.setSubtotal_venta(subtotal_venta);
             detalleVentaDAO.registrarDetalleVenta(detalleVenta);
         }
-    }
-
-    void registrarVenta() {
-        String fecha_venta = jTextFieldFecha.getText();
-        double total_venta = Double.parseDouble(jTextFieldTotal.getText());
-        String estado_venta = "1";
-        int id_cliente = cliente.getId_cliente();
-        int id_vendedor = Integer.parseInt(jTextFieldVendedor.getText());
-
-        venta.setFecha_venta(fecha_venta);
-        venta.setTotal_venta(total_venta);
-        venta.setEstado_venta(estado_venta);
-        venta.setCliente_id_cliente(id_cliente);
-        venta.setVendedor_id_vendedor(id_vendedor);
-        ventaDAO.registrarVenta(venta);
     }
 
     void actualizarStock() {
