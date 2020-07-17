@@ -242,16 +242,16 @@ public class VentaForm extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Seleccione una fila");
         } else {
             id = Integer.parseInt(jTableVenta.getValueAt(fila, 0).toString());
-            String dni_vendedor = jTableVenta.getValueAt(fila, 1).toString();
-            String nombre_vendedor = jTableVenta.getValueAt(fila, 2).toString();
-            String celular_vendedor = jTableVenta.getValueAt(fila, 3).toString();
-            String estado_vendedor = jTableVenta.getValueAt(fila, 4).toString();
-            String user_vendedor = jTableVenta.getValueAt(fila, 5).toString();
-            jTextFieldFecha.setText(dni_vendedor);
-            jTextFieldTotal.setText(nombre_vendedor);
-            jComboBoxEstado.setSelectedItem(estado_vendedor);
-            jTextFieldCliente.setText(celular_vendedor);
-            jTextFieldVendedor.setText(user_vendedor);
+            String fecha_venta = jTableVenta.getValueAt(fila, 1).toString();
+            String total_venta = jTableVenta.getValueAt(fila, 2).toString();
+            String estado_venta = jTableVenta.getValueAt(fila, 3).toString();
+            String cliente_id_cliente = jTableVenta.getValueAt(fila, 4).toString();
+            String vendedor_id_vendedor = jTableVenta.getValueAt(fila, 5).toString();
+            jTextFieldFecha.setText(fecha_venta);
+            jTextFieldTotal.setText(total_venta);
+            jComboBoxEstado.setSelectedItem(estado_venta);
+            jTextFieldCliente.setText(cliente_id_cliente);
+            jTextFieldVendedor.setText(vendedor_id_vendedor);
         }
     }//GEN-LAST:event_jTableVentaMouseClicked
 

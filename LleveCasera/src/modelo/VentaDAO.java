@@ -13,7 +13,22 @@ public class VentaDAO implements CRUD {
 
     Conexion conexion = new Conexion();
     Connection connection;
-
+    
+    public int ultimoIdVenta() {
+        int ultimaSerieVenta = 0;
+        String sql = "select max(id_venta) from venta;";
+        try {
+            connection = conexion.conectar();
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ultimaSerieVenta = rs.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return ultimaSerieVenta;
+    }
+        
     public int registrarVenta(Venta venta) {
         int respuesta = 0;
         String sql = "insert into venta (fecha_venta, total_venta, estado_venta, cliente_id_cliente, vendedor_id_vendedor) values (?, ?, ?, ?, ?);";
